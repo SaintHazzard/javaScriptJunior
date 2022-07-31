@@ -24,19 +24,6 @@ console.log(composicion);
 
 let car = new vehiculo(`Hilux`, `2013`, `toyota`, composicion )
 
-
-// const car = new vehiculo({ //Objeto posicion 0 creado toyota
-//   model: `Hilux`,  
-//   Marca: `Toyota`,
-//   anio: `2013`,
-//   composicion: {
-//     plastico: `10%`,
-//     metal: `80%`,
-//     policarbonato: `10%`,
-//   }
-// })
-
-
 console.log();
 console.log(car);
 
