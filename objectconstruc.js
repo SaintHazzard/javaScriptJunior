@@ -13,26 +13,7 @@ class vehiculo {
   }
   addVehicle(brand, year, model) {}
   // getter and setter brand
-  get brand() {
-    return this.brand;
-  }
-  set brand(newBrand) {
-    this.brand = newBrand;
-  }
-  // getter and setter year
-  get year() {
-    return this.year;
-  }
-  set year(newYear) {
-    this.year = newYear;
-  }
-  //getter and setter model
-  get model() {
-    return this.model;
-  }
-  set model(newModel) {
-    this.model = newModel;
-  }
+  
 }
 
 // code for add and remove data
@@ -68,3 +49,9 @@ console.log(salir);
 // function newFunction() {
 //   autos = new vehiculo(`toyota`, 2022, tsuru);
 // }
+
+const fruits = () => { if (true) { var fruit1 = 'apple'; const fruit2 = 'banana'; let fruit3 = 'kiwi'; } console.log(fruit); }
+
+console.log(fruits);
+fruits()
+

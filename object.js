@@ -57,3 +57,22 @@ const carrito = Object.create(prototipoAddCar);
 // segundo.model = `Tsusuru`;
 // segundo.marca = `toyota`;
 
+
+const saludo = "Hola mundo"
+
+
+ // true
+console.log(saludo.charAt());
+saludo.includes("Mundo") // false
+saludo.includes(" ") // true
+saludo.includes("Hola", 1) // false
+console.log(saludo.includes("mundo", -5)); // true
+
+
+function hola(primero, segundo,tercero, ...rest) {
+ console.log(primero, segundo); // 1 2
+ console.log(tercero);
+  console.log(rest); // [3,4,5,6]
+}
+
+hola(1, 2, 3, 4, 5,10,-2);
