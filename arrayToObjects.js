@@ -10,3 +10,16 @@ let mySymbol = `My Symbol, se utilizan a menudo para añadir claves de propiedad
 let symbol = Symbol(mySymbol);
 
 console.log(symbol.description);
+
+
+
+const user = {} ?? `ta vacio`
+console.log(user?.profile?.email);
+if (user?.pet?.email) {
+ console.log(`email`)
+} else {
+console.log(`fail this shit`);
+}
+
+console.log(user);
+

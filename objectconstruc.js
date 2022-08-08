@@ -16,14 +16,14 @@ class vehiculo {
   get brand() {
     return this.brand;
   }
-  set brand(newBrand) {
+  set brand(brand) {
     this.brand = newBrand;
   }
   // getter and setter year
   get year() {
     return this.year;
   }
-  set year(newYear) {
+  set year(year) {
     this.year = newYear;
   }
   //getter and setter model
@@ -64,8 +64,7 @@ while (!salir) {
 console.log(autos);
 
 console.log(salir);
-<<<<<<< HEAD
-=======
+
 
 // function newFunction() {
 //   autos = new vehiculo(`toyota`, 2022, tsuru);
