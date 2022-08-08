@@ -1,6 +1,6 @@
 // Inicializo variables
 
-autos = [];
+const autos = [];
 salir = false;
 
 // Creo la clase vehiculo
@@ -11,43 +11,26 @@ class vehiculo {
     this.year = year;
     this.model = model;
   }
-  addVehicle(brand, year, model) {}
-  // getter and setter brand
-  get brand() {
-    return this.brand;
-  }
-  set brand(newBrand) {
-    this.brand = newBrand;
-  }
-  // getter and setter year
-  get year() {
-    return this.year;
-  }
-  set year(newYear) {
-    this.year = newYear;
-  }
-  //getter and setter model
-  get model() {
-    return this.model;
-  }
-  set model(newModel) {
-    this.model = newModel;
+  showInf() {
+    console.log(`Year fabrication ${this.year}`);
   }
 }
 
 // code for add and remove data
-console.log(eleccion);
 console.log(salir);
- while (!salir) {
+
+while (!salir) {
   var eleccion = parseInt(prompt(`1. Add vehicle \n 2. Remove vehicle \n 3.Exit \n`));
   switch (eleccion) {
     case 1:
-      var marca = prompt(`Brand of vehicle?`);
+      var brand = prompt(`Brand of vehicle?`);
       var year = prompt(`Fabrication year?`);
       var model = prompt(`Model of vehicle?`);
-      car = new vehiculo(marca, year, model);
-      autos.push(car);
+      autos.push(new vehiculo(brand, year, model));
+      console.log(autos.length);
 
+    
+      console.table(autos);
       break;
     case 2:
       break;
@@ -58,13 +41,7 @@ console.log(salir);
     default:
       break;
   }
- }
- 
- 
-
+}
+console.log(autos);
 
 console.log(salir);
-
-// function newFunction() {
-//   autos = new vehiculo(`toyota`, 2022, tsuru);
-// }
