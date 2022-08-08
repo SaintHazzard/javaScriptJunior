@@ -11,8 +11,27 @@ class vehiculo {
     this.year = year;
     this.model = model;
   }
-  showInf() {
-    console.log(`Year fabrication ${this.year}`);
+  addVehicle(brand, year, model) {}
+  // getter and setter brand
+  get brand() {
+    return this.brand;
+  }
+  set brand(newBrand) {
+    this.brand = newBrand;
+  }
+  // getter and setter year
+  get year() {
+    return this.year;
+  }
+  set year(newYear) {
+    this.year = newYear;
+  }
+  //getter and setter model
+  get model() {
+    return this.model;
+  }
+  set model(newModel) {
+    this.model = newModel;
   }
 }
 
@@ -45,3 +64,9 @@ while (!salir) {
 console.log(autos);
 
 console.log(salir);
+<<<<<<< HEAD
+=======
+
+// function newFunction() {
+//   autos = new vehiculo(`toyota`, 2022, tsuru);
+// }
