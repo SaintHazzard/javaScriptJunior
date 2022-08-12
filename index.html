@@ -1,72 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script type="module" src="index.js"></script>
-    <title>JavascriptJunior</title>
-  </head>
-  <body>
-    <h1>MOKEMON! 💧 🌿 🔥</h1>
 
-    <section id="select-pet">
-      <h2>Elige tu mascota:</h2>
-      <h3>MASCOTAS</h3>
-      <ul>
-        <li>
-          <label for=""
-            >Hipoge ➡ Agua
-            <input type="radio" title="select" name="select-pet" />
-          </label>
-        </li>
-        <li>
-          <label for=""
-            >Charizard ➡ Fuego
-            <input type="radio" title="select" name="select-pet" />
-          </label>
-        </li>
-        <li>
-          <label for=""
-            >Geoude ➡ Tierra
-            <input type="radio" title="select" name="select-pet" />
-          </label>
-        </li>
-        <li>
-          <label for=""
-            >Pydos ➡ Tierra y fuego
-            <input type="radio" title="select" name="select-pet" />
-          </label>
-        </li>
-        <li>
-          <label for=""
-            >Tucapalma ➡ Agua y tierra
-            <input type="radio" title="select" name="select-pet" />
-          </label>
-        </li>
-        <li>
-          <label for=""
-            >Langostelvis ➡ Agua y fuego
-            <input type="radio" title="select" name="select-pet" />
-          </label>
-        </li>
-      </ul>
+<head>
+ <meta charset="UTF-8" />
+ <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+ <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ <script type="module" src="codigo.js"></script>
+ <title>JavascriptJunior</title>
+</head>
 
-      <button>Seleccionar</button>
-    </section>
-    <section id="select-mov">
-      <h2>Elige tu ataque:</h2>
+<body>
+ <h1>MOKEMON! 💧 🌿 🔥</h1>
 
-      <p>Tu mascota tiene <span>3</span> vidas</p>
-      <p>Las mascota del enemigo tiene <span>3</span> vidas</p>
-      <p>
-        <button>Fire 🔥</button>
-        <button>Water 💧</button>
-        <button>Sand 🌿</button>
-      </p>
-    </section>
-    <section id="menssage">
-      <p>Tu mascota ataco con FUEGO, las mascota del enemigo ataco con TIERRA. GANASTE</p>
-    </section>
-  </body>
+ <section id="select-pet">
+  <h2>Elige tu mascota:</h2>
+  <h3>MASCOTAS</h3>
+  <ul>
+   <li>
+    <label for="Hipoge">Hipoge ➡ Agua
+     <input type="radio" title="select" name="select-pet" id="Hipoge"/>
+    </label>
+   </li>
+   <li>
+    <label for="Charizard">Charizard ➡ Fuego
+     <input type="radio" title="select" name="select-pet" id="Charizard"/>
+    </label>
+   </li>
+   <li>
+    <label for="Geoude">Geoude ➡ Tierra
+     <input type="radio" title="select" name="select-pet" id="Geoude"/>
+    </label>
+   </li>
+   <li>
+    <label for="Pydos">Pydos ➡ Tierra y fuego
+     <input type="radio" title="select" name="select-pet" id="Pydos"/>
+    </label>
+   </li>
+   <li>
+    <label for="Tucapalma">Tucapalma ➡ Agua y tierra
+     <input type="radio" title="select" name="select-pet" id="Tucapalma"/>
+    </label>
+   </li>
+   <li>
+    <label for="Langostelvis">Langostelvis ➡ Agua y fuego
+     <input type="radio" title="select" name="select-pet" id="Langostelvis"/>
+    </label>
+   </li>
+  </ul>
+
+  <button id="button-select">Seleccionar</button>
+ </section>
+ <section id="select-mov">
+  <h2>Elige tu ataque:</h2>
+
+  <p>Tu mascota tiene <span>3</span> vidas</p>
+  <p>Las mascota del enemigo tiene <span>3</span> vidas</p>
+  <p>
+   <button id="button-fire">Fire 🔥</button>
+   <button id="button-water">Water 💧</button>
+   <button id="button-sand">Sand 🌿</button>
+  </p>
+ </section>
+ <section id="menssage">
+  <p>Tu mascota ataco con FUEGO, las mascota del enemigo ataco con TIERRA. GANASTE</p>
+ </section>
+ <section id="restart">
+  <button id="button-restart">Restart</button>
+ </section>
+</body>
+
 </html>

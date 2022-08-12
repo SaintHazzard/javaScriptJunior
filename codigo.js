@@ -1,2 +1,1 @@
-const nombre = 'dalto';
-let numero 
+import {  } from "../";
