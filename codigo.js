@@ -17,7 +17,8 @@ function startPlay() {
  selectPetPlayer.addEventListener(`click`, () => {
   inputCheck.forEach((element) => {
    if (element.checked) {
-    console.log(`You selected to ${element.id}`);
+    let selectedMokemon = element.id;
+    console.log(`You selected to ${mokemons.element.id}`);
     
    }
   })
