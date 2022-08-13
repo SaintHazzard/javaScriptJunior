@@ -17,37 +17,37 @@
       <h3>MASCOTAS</h3>
       <ul>
         <li>
-          <label for="Hipoge"
+          <label for=""
             >Hipoge ➡ Agua
             <input type="radio" class="select" name="select-pet" id="Hipoge" />
           </label>
         </li>
         <li>
-          <label for="Charizard"
+          <label for=""
             >Charizard ➡ Fuego
             <input type="radio" class="select" name="select-pet" id="Charizard" />
           </label>
         </li>
         <li>
-          <label for="Geoude"
+          <label for=""
             >Geoude ➡ Tierra
             <input type="radio" class="select" name="select-pet" id="Geoude" />
           </label>
         </li>
         <li>
-          <label for="Pydos"
+          <label for=""
             >Pydos ➡ Tierra y fuego
             <input type="radio" class="select" name="select-pet" id="Pydos" />
           </label>
         </li>
         <li>
-          <label for="Tucapalma"
+          <label for=""
             >Tucapalma ➡ Agua y tierra
             <input type="radio" class="select" name="select-pet" id="Tucapalma" />
           </label>
         </li>
         <li>
-          <label for="Langostelvis"
+          <label for=""
             >Langostelvis ➡ Agua y fuego
             <input type="radio" class="select" name="select-pet" id="Langostelvis" />
           </label>
@@ -59,8 +59,8 @@
     <section id="select-mov">
       <h2>Elige tu ataque:</h2>
 
-      <p>Tu mascota tiene <span>3</span> vidas</p>
-      <p>Las mascota del enemigo tiene <span>3</span> vidas</p>
+      <p>Tu mascota <span id="mascotajugador"> </span> tiene <span id="vidasjugador">3</span> vidas</p>
+      <p>La mascota del enemigo <span id="mascotaenemigo"></span> tiene <span id="vidasenemigo">3</span> vidas</p>
       <p>
         <button id="button-fire" class="button-moveoff">Fire 🔥</button>
         <button id="button-water" class="button-moveoff">Water 💧</button>
@@ -71,7 +71,7 @@
       <p>Tu mascota ataco con FUEGO, las mascota del enemigo ataco con TIERRA. GANASTE</p>
     </section>
     <section id="restart">
-      <button id="button-restart">Restart</button>
+      <button id="button-restart" onclick="restart()">Restart</button>
     </section>
   </body>
   
