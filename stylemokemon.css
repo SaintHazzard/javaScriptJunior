@@ -1,0 +1,9 @@
+
+
+.button-moveon{
+ display: inline;
+}
+.button-moveoff {
+display: none;
+ background: #1fe ;
+}
