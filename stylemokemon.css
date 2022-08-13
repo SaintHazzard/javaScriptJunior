@@ -1,9 +1,20 @@
+#button-fire{
+ background: rgb(231, 95, 4);
+}
+#button-sand{
+ background: rgb(219, 203, 59);
+}
+#button-water{
+ background: #1fe;
+}
 
-
-.button-moveon{
- display: inline;
+.hidden{
+ display: none;
 }
 .button-moveoff {
 display: none;
  background: #1fe ;
+}
+.button-moveon{
+ display: inline;
 }

@@ -12,9 +12,9 @@ function startPlay() {
  const buttonWater = document.getElementById(`button-water`);
  const buttonSand = document.getElementById(`button-sand`);
   const mokemons = [
-    { name: `Charizard`, tipo: `fuego` },
-    { name: `Hipoge`, tipo: `agua` },
-    { name: `Geoude`, tipo: `tierra` },
+    { name: `Charizard`, tipo: [`fuego`] },
+    { name: `Hipoge`, tipo: [`agua`] },
+    { name: `Geoude`, tipo: [`tierra`] },
     { name: `Pydos`, tipo: [`tierra`, `fuego`] },
     { name: `Tucapalma`, tipo: [`agua`, `tierra`] },
     { name: `Langostelvis`, tipo: [`agua`, `fuego`] },];
@@ -26,21 +26,23 @@ function startPlay() {
       if (element.checked) {
        mokemons.forEach((element) => {
         if (element.name == selectedMokemon) {
-          console.log(element.tipo);
-           if (element.tipo == movsElements[1]) {
-            buttonFire.classList.toggle(`button-moveoff`);
-            buttonWater.classList.toggle(`button-moveon`);
-            buttonSand.classList.toggle(`button-moveon`);
-         }
-         if (element.tipo == `agua`) {
+         element.tipo.forEach((value) => {
+          if (value == movsElements[0]) {
+           buttonWater.classList.toggle(`button-moveon`)
+           inputCheck.forEach((check) => check.classList.toggle(`hidden`))
+          }
+          if (value == movsElements[1]) {
            buttonFire.classList.toggle(`button-moveon`);
-           buttonWater.classList.toggle(`button-moveoff`);
+           inputCheck.forEach((check) => check.classList.toggle(`hidden`));
+          }
+          if (value == movsElements[2]) {
            buttonSand.classList.toggle(`button-moveon`);
-         }
-         if (element.tipo == `tierra`) {
-           buttonSand.classList.toggle(`button-moveoff`);
-         }
-         }
+           inputCheck.forEach((check) => {if (buttonSand.classList.contains(``)) {
+            
+           }});
+          }
+         }) 
+        }
        });
       }
     });
