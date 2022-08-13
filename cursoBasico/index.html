@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Piedra,papel y tijera</title>
+ <script>const elecciones = [`Piedra`, `Papel`, `tijera`];
+
+function juego() {
+  let elecuser = parseInt(prompt(`Elija opcion \n 1. Piedra \n 2.Papel \n 3.Tijera`));
+  let elecmachine = Math.floor(Math.random() * (4 - 1) + 1);
+  if (
+    (elecuser === 1 && elecmachine === 3) ||
+    (elecuser === 2 && elecmachine === 1) ||
+    (elecuser === 3 && elecmachine === 2)
+  ) {
+    alert(`User wins with ${elecciones[elecuser - 1]}`);
+  } else if (elecuser === elecmachine) {
+    alert(`Draw`);
+  } else {
+    alert(`Machine wins with ${elecciones[elecmachine - 1]}`);
+  }
+}</script>
+</head>
+<body>
+ 
+<h1>Juego piedra papel o tijera</h1> <button onclick="juego()">Ejecuta</button>
+
+ 
+</body>
+</html>
