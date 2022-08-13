@@ -1,20 +1,29 @@
+
 function addValue() {
  let inputCheck = document.querySelectorAll(`.select`);
- inputCheck.forEach(Element => {
-  let addValue =Element.getAttribute(`id`)
-  Element.setAttribute(`value`, addValue );
- })
- // let idAdd=inputCheck.getAttribute(`id`);
- // inputCheck.setAttribute(`value`, idAdd );
- console.log(inputCheck);
+  inputCheck.forEach((Element) => {
+    let addValue = Element.getAttribute(`id`);
+    Element.setAttribute(`value`, addValue.toLocaleLowerCase());
+  });
 }
 
-// function selectPetPlayer() {
 
+function startPlay() {
+ const movsElements = [`agua`, `fuego`, `tierra`]
  
-// }
+ const mokemons = { Charizard: [`fuego` || movsElements[1], `dragon `], Hipoge: `agua`, Geoude: `tierra`, Pydos: [`tierra`, `fuego`], Tucapalma: [`agua`, `tierra`], Langostelvis: [`agua`, `fuego`] }
+ const inputCheck = document.querySelectorAll(`.select`);
+  const selectPetPlayer = document.getElementById(`button-select-pet`);
+ selectPetPlayer.addEventListener(`click`, () => {
+  inputCheck.forEach((element) => {
+   if (element.checked) {
+    console.log(`You selected to ${element.id}`);
+    
+   }
+  })
+ });
+ console.log(mokemons);
+}
 
+window.addEventListener(`load`, startPlay);
 
-// let selectpet = document.getElementById(`button-select-pet`)
-
-// selectpet.addEventListener(`click`, selectPetPlayer())
