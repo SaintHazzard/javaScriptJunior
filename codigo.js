@@ -9,10 +9,13 @@ function addValue() {
 function startPlay() {
   const movsElements = [`agua`, `fuego`, `tierra`];
   const namePet = document.getElementById(`mascotajugador`);
-
+  const namePetEnemy = document.getElementById(`mascotaenemigo`);
+  const divMovs = document.getElementById(`select-mov`);
   const buttonFire = document.getElementById(`button-fire`);
   const buttonWater = document.getElementById(`button-water`);
   const buttonSand = document.getElementById(`button-sand`);
+ const elegido = enemyPet();
+ const allyElegido = allyPet();
   const mokemons = [
     { name: `Charizard`, tipo: [`fuego`] },
     { name: `Hipoge`, tipo: [`agua`] },
@@ -25,12 +28,14 @@ function startPlay() {
   const selectPetPlayer = document.getElementById(`button-select-pet`);
   selectPetPlayer.addEventListener(`click`, () => {
     inputCheck.forEach((element) => {
-      let selectedMokemon = element.id;
+     let selectedMokemon = element.id;
+     
       if (element.checked) {
-        enemyPet();
+        namePetEnemy.innerHTML = elegido;
         mokemons.forEach((element) => {
           if (element.name == selectedMokemon) {
             namePet.innerHTML = element.name;
+            divMovs.classList.toggle(`hidden`);
             element.tipo.forEach((value) => {
               if (value == movsElements[0]) {
                 buttonWater.classList.toggle(`button-moveon`);
@@ -42,33 +47,159 @@ function startPlay() {
               }
               if (value == movsElements[2]) {
                 buttonSand.classList.toggle(`button-moveon`);
-                inputCheck.forEach((check) => {
-                  if (buttonSand.classList.contains(``)) {
-                  }
-                });
+                inputCheck.forEach((check) => check.classList.toggle(`hidden`));
               }
             });
           }
         });
       }
     });
+   })
+
+  // evento del boton de ataque
+  let enemyLifes = 3;
+  let userLifes = 3;
+  let lifeUser = document.getElementById(`vidasjugador`);
+  let lifeEnemy = document.getElementById(`vidasenemigo`);
+
+  function movWeaknes() {
+    return Math.floor(Math.random() * (1 - 0 + 1) + 0);
+  }
+  function movStrong() {
+    return Math.floor(Math.random() * (2 - 0 + 1) + 0);
+ }
+ 
+ 
+ buttonFire.addEventListener(`click`, () => {
+  let foundPlayer = mokemons.find(element1 => element1 == allyElegido);
+  console.log(allyElegido);
+   let foundEnemy = mokemons.find(element => element.name == elegido);
+   console.log(foundEnemy);
+  console.log(foundPlayer);
+    if (foundPlayer.tipo == movsElements[1] && foundEnemy.tipo == movsElements[2]) {
+      let attackUser = movStrong();
+      let attackEnemy = movWeaknes();
+      console.log(attackUser);
+      console.log(attackEnemy);
+      if (attackUser > attackEnemy) {
+        enemyLifes--;
+        console.log(`El ataque ha sido muy efectivo`);
+      }
+      if (attackUser < attackEnemy) {
+        userLifes--;
+        console.log(`Has recibido un golpe`);
+      }
+      if (attackEnemy == attackUser) {
+        console.log(`Tu ataque ha fallado`);
+      }
+      lifeUser.innerHTML = userLifes;
+      lifeEnemy.innerHTML = enemyLifes;
+   }
+   if (foundPlayer.tipo = movsElements[1] && foundEnemy.tipo == movsElements[0]) {
+     let attackUser = movWeaknes();
+     let attackEnemy = movStrong();
+     console.log(attackUser);
+     console.log(attackEnemy);
+     if (attackUser > attackEnemy) {
+       enemyLifes--;
+       console.log(`El ataque ha sido muy efectivo`);
+     }
+     if (attackUser < attackEnemy) {
+       userLifes--;
+       console.log(`Has recibido un golpe`);
+     }
+     if (attackEnemy == attackUser) {
+       console.log(`Tu ataque ha fallado`);
+     }
+     lifeUser.innerHTML = userLifes;
+     lifeEnemy.innerHTML = enemyLifes;
+   }
+ });
+ 
+
+
+
+
+ // boton ataque de agua
+  buttonWater.addEventListener(`click`, () => {
+    let foundPlayer = mokemons.find(element1 => element1.name == namePet);
+    let foundEnemy = mokemons.find(element => element.name == elegido);
+    if (foundPlayer.tipo == movsElements[0] && foundEnemy.tipo == movsElements[1]) {
+      let attackUser = movStrong();
+      let attackEnemy = movWeaknes();
+      console.log(attackUser);
+      console.log(attackEnemy);
+      if (attackUser > attackEnemy) {
+        enemyLifes--;
+        console.log(`El ataque ha sido muy efectivo`);
+      }
+      if (attackUser < attackEnemy) {
+        userLifes--;
+        console.log(`Has recibido un golpe`);
+      }
+      if (attackEnemy == attackUser) {
+        console.log(`Tu ataque ha fallado`);
+      }
+      lifeUser.innerHTML = userLifes;
+      lifeEnemy.innerHTML = enemyLifes;
+    }
+  });
+ 
+  buttonSand.addEventListener(`click`, () => {
+    let foundPlayer = mokemons.find(element1 => element1.name == namePet);
+    let foundEnemy = mokemons.find(element => element.name == elegido);
+    if (foundPlayer.tipo == movsElements[2] && foundEnemy.tipo == movsElements[0]) {
+      let attackUser = movStrong();
+      let attackEnemy = movWeaknes();
+      console.log(attackUser);
+      console.log(attackEnemy);
+      if (attackUser > attackEnemy) {
+        enemyLifes--;
+        console.log(`El ataque ha sido muy efectivo`);
+      }
+      if (attackUser < attackEnemy) {
+        userLifes--;
+        console.log(`Has recibido un golpe`);
+      }
+      if (attackEnemy == attackUser) {
+        console.log(`Tu ataque ha fallado`);
+      }
+      lifeUser.innerHTML = userLifes;
+      lifeEnemy.innerHTML = enemyLifes;
+    }
   });
 }
 
+// funcion para elegir mascota enemiga de manera aleatoria
 function enemyPet() {
-  const namePetEnemy = document.getElementById(`mascotaenemigo`);
   let inputCheck = document.querySelectorAll(`.select`);
   let randomPet = Math.floor(Math.random() * (2 - 0 + 1) + 0);
 
-  namePetEnemy.innerHTML = inputCheck[randomPet].id;
+  let eledido = inputCheck[randomPet].id;
+  return eledido;
 }
+
+// funcion para elegir mascota del jugador
+function allyPet() {
+ const inputCheck = document.querySelectorAll(`.select`);
+ 
+ function select() {
+  inputCheck.forEach((element) => {
+   let selectedMokemon = element.id;
+   return `selectedMokemon`;
+  });
+ }
+ selectedMokemon = 
+}
+ 
+
+// acction de ataque
 
 window.addEventListener(`load`, startPlay);
 
-
 function restart() {
- let refresh = document.getElementById(`button-restart`);
- refresh.addEventListener(`click`, (_) => {
-   location.reload();
- });
+  let refresh = document.getElementById(`button-restart`);
+  refresh.addEventListener(`click`, (_) => {
+    location.reload();
+  });
 }
