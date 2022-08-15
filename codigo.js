@@ -67,7 +67,7 @@ function startPlay() {
   return Math.floor(Math.random() * (1 - 0 + 1) + 0);
  }
  function movStrong() {
-  return Math.floor(Math.random() * (2 - 0 + 1) + 0);
+  return Math.floor(Math.random() * (3 - 0 + 1) + 0);
  }
 
  // BUTTON ATTACK FUEGO
@@ -152,7 +152,6 @@ function startPlay() {
   }
   const leftLifePLayer = setAllyLifes();
   const leftLifeEnemies = setEnemieLifes();
-  console.log(leftLifeEnemies);
   if (leftLifeEnemies <= 0) {
    alert(`Enemigo derrotado`);
   }
@@ -171,76 +170,73 @@ function startPlay() {
   // Agua vs Fuego
 
   if (
-   mokemons[foundPlayer].tipo.find((element) => element == movsElements[0]) &&
-   foundEnemy.tipo.find((element) => element == movsElements[1])
+    mokemons[foundPlayer].tipo.find((element) => element == movsElements[0]) &&
+    foundEnemy.tipo.find((element) => element == movsElements[1])
   ) {
-   let attackUser = movStrong();
-   let attackEnemy = movWeaknes();
-   console.log(attackUser);
-   console.log(attackEnemy);
-   if (attackUser > attackEnemy) {
-    enemyLifes--;
-    console.log(`El ataque ha sido muy efectivo`);
-   }
-   if (attackUser < attackEnemy) {
-    userLifes--;
-    console.log(`Has recibido un golpe`);
-   }
-   if (attackEnemy == attackUser) {
-    console.log(`Tu ataque ha fallado`);
-   }
-   lifeUser.innerHTML = userLifes;
-   lifeEnemy.innerHTML = enemyLifes;
+    let attackUser = movStrong();
+    let attackEnemy = movWeaknes();
+    console.log(attackUser);
+    console.log(attackEnemy);
+    if (attackUser > attackEnemy) {
+      enemyLifes--;
+      console.log(`El ataque ha sido muy efectivo`);
+    }
+    if (attackUser < attackEnemy) {
+      userLifes--;
+      console.log(`Has recibido un golpe`);
+    }
+    if (attackEnemy == attackUser) {
+      console.log(`Tu ataque ha fallado`);
+    }
+    lifeUser.innerHTML = userLifes;
+    lifeEnemy.innerHTML = enemyLifes;
+  } else if (
+    mokemons[foundPlayer].tipo.find((element) => element == movsElements[0]) &&
+    foundEnemy.tipo.find((element) => element == movsElements[2])
+  ) {
+    let attackUser = movWeaknes();
+    let attackEnemy = movStrong();
+    console.log(attackUser);
+    console.log(attackEnemy);
+    if (attackUser > attackEnemy) {
+      enemyLifes--;
+      console.log(`El ataque ha sido muy efectivo`);
+    }
+    if (attackUser < attackEnemy) {
+      userLifes--;
+      console.log(`Has recibido un golpe`);
+    }
+    if (attackEnemy == attackUser) {
+      console.log(`Tu ataque ha fallado`);
+    }
+    lifeUser.innerHTML = userLifes;
+    lifeEnemy.innerHTML = enemyLifes;
   }
   // Agua vs agua
   else if (
-   mokemons[foundPlayer].tipo.find((element) => element == movsElements[0]) &&
-   foundEnemy.tipo.find((element) => element == movsElements[0])
+    mokemons[foundPlayer].tipo.find((element) => element == movsElements[0]) &&
+    foundEnemy.tipo.find((element) => element == movsElements[0])
   ) {
-   let attackUser = movWeaknes();
-   let attackEnemy = movWeaknes();
-   console.log(attackUser);
-   console.log(attackEnemy);
-   if (attackUser > attackEnemy) {
-    enemyLifes--;
-    console.log(`El ataque ha sido muy efectivo`);
-   }
-   else if (attackUser < attackEnemy) {
-    userLifes--;
-    console.log(`Has recibido un golpe`);
-   }
-   else if (attackEnemy == attackUser) {
-    console.log(`Tu ataque ha fallado`);
-   }
-   lifeUser.innerHTML = userLifes;
-   lifeEnemy.innerHTML = enemyLifes;
+    let attackUser = movWeaknes();
+    let attackEnemy = movWeaknes();
+    console.log(attackUser);
+    console.log(attackEnemy);
+    if (attackUser > attackEnemy) {
+      enemyLifes--;
+      console.log(`El ataque ha sido muy efectivo`);
+    } else if (attackUser < attackEnemy) {
+      userLifes--;
+      console.log(`Has recibido un golpe`);
+    } else if (attackEnemy == attackUser) {
+      console.log(`Tu ataque ha fallado`);
+    }
+    lifeUser.innerHTML = userLifes;
+    lifeEnemy.innerHTML = enemyLifes;
   }
   // Agua vs Tierra
-  else if (
-   mokemons[foundPlayer].tipo.find((element) => element == movsElements[0]) &&
-   foundEnemy.tipo.find((element) => element == movsElements[2])
-  ) {
-   let attackUser = movWeaknes();
-   let attackEnemy = movStrong();
-   console.log(attackUser);
-   console.log(attackEnemy);
-   if (attackUser > attackEnemy) {
-    enemyLifes--;
-    console.log(`El ataque ha sido muy efectivo`);
-   }
-   if (attackUser < attackEnemy) {
-    userLifes--;
-    console.log(`Has recibido un golpe`);
-   }
-   if (attackEnemy == attackUser) {
-    console.log(`Tu ataque ha fallado`);
-   }
-   lifeUser.innerHTML = userLifes;
-   lifeEnemy.innerHTML = enemyLifes;
-  }
+  
   const leftLifePLayer = setAllyLifes();
   const leftLifeEnemies = setEnemieLifes();
-  console.log(leftLifeEnemies);
   if (leftLifeEnemies <= 0) {
    alert(`Enemigo derrotado`);
   }
@@ -280,7 +276,7 @@ function startPlay() {
    lifeEnemy.innerHTML = enemyLifes;
   }
   //Tierra vs Tierra
-  if (
+  else if (
    mokemons[foundPlayer].tipo.find((element) => element == movsElements[2]) &&
    foundEnemy.tipo.find((element) => element == movsElements[2])
   ) {
@@ -303,7 +299,7 @@ function startPlay() {
    lifeEnemy.innerHTML = enemyLifes;
   }
   // Tierra vs fuego
-  if (
+  else if (
    mokemons[foundPlayer].tipo.find((element) => element == movsElements[2]) &&
    foundEnemy.tipo.find((element) => element == movsElements[1])
   ) {
@@ -327,7 +323,7 @@ function startPlay() {
   }
   const leftLifePLayer = setAllyLifes();
   const leftLifeEnemies = setEnemieLifes();
-  console.log(leftLifeEnemies);
+  
   if (leftLifeEnemies <= 0) {
    alert(`Enemigo derrotado`);
   }
@@ -342,8 +338,8 @@ function enemyPet() {
  let inputCheck = document.querySelectorAll(`.select`);
  let randomPet = Math.floor(Math.random() * (5 - 0 + 1) + 0);
 
- // let eledido = inputCheck[randomPet].id;
- let eledido = `Tucapalma`;
+ let eledido = inputCheck[randomPet].id;
+ // let eledido = `Tucapalma`;
  return eledido;
 }
 
