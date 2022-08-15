@@ -40,15 +40,15 @@ function startPlay() {
       element.tipo.forEach((value) => {
        if (value == movsElements[0]) {
         buttonWater.classList.toggle(`button-moveon`);
-        inputCheck.forEach((check) => check.classList.toggle(`hidden`));
+        inputCheck.forEach((check) => check.classList.add(`hidden`));
        }
-       if (value == movsElements[1]) {
+       else if (value == movsElements[1]) {
         buttonFire.classList.toggle(`button-moveon`);
-        inputCheck.forEach((check) => check.classList.toggle(`hidden`));
+        inputCheck.forEach((check) => check.classList.add(`hidden`));
        }
-       if (value == movsElements[2]) {
-        buttonSand.classList.toggle(`button-moveon`);
-        inputCheck.forEach((check) => check.classList.toggle(`hidden`));
+       else if (value == movsElements[2]) {
+         buttonSand.classList.toggle(`button-moveon`);
+         inputCheck.forEach((check) => check.classList.add(`hidden`));
        }
       });
      }
@@ -73,14 +73,15 @@ function startPlay() {
  // BUTTON ATTACK FUEGO
  buttonFire.addEventListener(`click`, () => {
   const elegidoAlly = setAllyPet();
+  
 
   let foundPlayer = mokemons.findIndex((element) => element.name == elegidoAlly);
   let foundEnemy = mokemons.find((element) => element.name == elegido);
 
   // Fuego vs tierra
-
-  if (
-   mokemons[foundPlayer].tipo.find((element) => element == movsElements[1]) &&
+  let attackFuego = mokemons[foundPlayer].tipo.find((element) => element == movsElements[1])
+  console.log(attackFuego);
+  if ( attackFuego &&
    foundEnemy.tipo.find((element) => element == movsElements[2])
   ) {
    let attackUser = movStrong();
@@ -100,9 +101,11 @@ function startPlay() {
    }
    lifeUser.innerHTML = userLifes;
    lifeEnemy.innerHTML = enemyLifes;
+  
   }
+ 
   //Fuego vs fuego
-  if (
+  else if (
    mokemons[foundPlayer].tipo.find((element) => element == movsElements[1]) &&
    foundEnemy.tipo.find((element) => element == movsElements[1])
   ) {
@@ -125,7 +128,7 @@ function startPlay() {
    lifeEnemy.innerHTML = enemyLifes;
   }
   // Fuego vs Agua
-  if (
+  else if (
    mokemons[foundPlayer].tipo.find((element) => element == movsElements[1]) &&
    foundEnemy.tipo.find((element) => element == movsElements[0])
   ) {
@@ -339,8 +342,8 @@ function enemyPet() {
  let inputCheck = document.querySelectorAll(`.select`);
  let randomPet = Math.floor(Math.random() * (5 - 0 + 1) + 0);
 
- let eledido = inputCheck[randomPet].id;
- 
+ // let eledido = inputCheck[randomPet].id;
+ let eledido = `Tucapalma`;
  return eledido;
 }
 
