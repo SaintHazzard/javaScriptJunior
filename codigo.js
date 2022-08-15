@@ -193,7 +193,7 @@ function startPlay() {
    lifeEnemy.innerHTML = enemyLifes;
   }
   // Agua vs agua
-  if (
+  else if (
    mokemons[foundPlayer].tipo.find((element) => element == movsElements[0]) &&
    foundEnemy.tipo.find((element) => element == movsElements[0])
   ) {
@@ -205,18 +205,18 @@ function startPlay() {
     enemyLifes--;
     console.log(`El ataque ha sido muy efectivo`);
    }
-   if (attackUser < attackEnemy) {
+   else if (attackUser < attackEnemy) {
     userLifes--;
     console.log(`Has recibido un golpe`);
    }
-   if (attackEnemy == attackUser) {
+   else if (attackEnemy == attackUser) {
     console.log(`Tu ataque ha fallado`);
    }
    lifeUser.innerHTML = userLifes;
    lifeEnemy.innerHTML = enemyLifes;
   }
   // Agua vs Tierra
-  if (
+  else if (
    mokemons[foundPlayer].tipo.find((element) => element == movsElements[0]) &&
    foundEnemy.tipo.find((element) => element == movsElements[2])
   ) {
