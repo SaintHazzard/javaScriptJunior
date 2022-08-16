@@ -60,8 +60,8 @@ function startPlay() {
  let userLifes = 3;
  let lifeUser = document.getElementById(`vidasjugador`);
  let lifeEnemy = document.getElementById(`vidasenemigo`);
- let ataquePlayer = document.getElementById(`ataqueplayer`);
- let ataqueenemigo = document.getElementById(`ataqueenemigo`);
+ let ataquePlayer = document.createElement(`p`);
+ let ataqueenemigo = document.getElementById(`ataqueplayer`);
  let msj = document.getElementById(`menssage`);
 
  function movWeaknes() {
@@ -427,7 +427,6 @@ function startPlay() {
    lifeEnemy.innerHTML = enemyLifes;
    console.log(`Tierra vs Tierra`);
   }
-  
   const leftLifePLayer = setAllyLifes();
   const leftLifeEnemies = setEnemieLifes();
 
