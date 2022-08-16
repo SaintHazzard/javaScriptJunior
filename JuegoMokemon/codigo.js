@@ -486,7 +486,7 @@ function crearMensajeFinal(){
 
  parrado.innerHTML = `La puuta madrezzzz`
  
- sectionMsj.
+ sectionMsj
 }
 
 // acction de ataque
