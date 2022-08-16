@@ -7,46 +7,56 @@
     <script src="codigo.js"></script>
     <link rel="stylesheet" href="stylemokemon.css">
     <title>JavascriptJunior</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
   </head>
 
   <body onload="addValue()">
-    <h1>MOKEMON! 💧 🌿 🔥</h1>
+    <h1 class="titulo">MOKEMON! 💧 🌿 🔥</h1>
 
-    <section id="select-pet">
+    <section id="select-pet" class="select-pet">
       <h2>Elige tu mascota:</h2>
       <h3>MASCOTAS</h3>
-      <ul>
+      <ul id="panel mascotas">
         <li>
+         <img src="hipoge.png" alt="" class="containerImgPet">
           <label for=""
             >Hipoge ➡ Agua
             <input type="radio" class="select" name="select-pet" id="Hipoge" />
           </label>
+          
         </li>
         <li>
+         <img src="charizard.png" alt="" class="containerImgPet">
           <label for=""
             >Charizard ➡ Fuego
             <input type="radio" class="select" name="select-pet" id="Charizard" />
           </label>
         </li>
         <li>
+         <img src="geoude.png" alt="" class="containerImgPet">
           <label for=""
             >Geoude ➡ Tierra
             <input type="radio" class="select" name="select-pet" id="Geoude" />
           </label>
         </li>
         <li>
+         <img src="Heatran.webp" alt="" class="containerImgPet">
           <label for=""
             >Pydos ➡ Tierra y fuego
             <input type="radio" class="select" name="select-pet" id="Pydos" />
           </label>
         </li>
         <li>
+         <img src="Swampert.webp" alt="" class="containerImgPet">
           <label for=""
             >Tucapalma ➡ Agua y tierra
             <input type="radio" class="select" name="select-pet" id="Tucapalma" />
           </label>
         </li>
         <li>
+         <img src="Volcanion.webp" alt="" class="containerImgPet">
           <label for=""
             >Langostelvis ➡ Agua y fuego
             <input type="radio" class="select" name="select-pet" id="Langostelvis" />
@@ -57,10 +67,10 @@
       <button id="button-select-pet">Seleccionar</button>
     </section>
     <section id="select-mov" class="select-mov hidden">
-      <h2>Elige tu ataque:</h2>
+      <h3>Elige tu ataque:</h3>
 
       <p>Tu mascota <span id="mascotajugador"> </span> tiene <span id="vidasjugador">3</span> vidas</p>
-      <p>La mascota del enemigo <span id="mascotaenemigo"></span> tiene <span id="vidasenemigo">3</span> vidas</p>
+      <p>La mascota enemiga <span id="mascotaenemigo"></span> tiene <span id="vidasenemigo">3</span> vidas</p>
       <p>
         <button id="button-fire" class="button-moveoff">Fire 🔥</button>
         <button id="button-water" class="button-moveoff">Water 💧</button>

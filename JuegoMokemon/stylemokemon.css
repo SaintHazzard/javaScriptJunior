@@ -1,21 +1,117 @@
+* {
+ box-sizing: border-box;
+ font-family: 'Fredoka One', cursive;
+}
 
-#button-fire{
+html{
+ background-image: url(/JuegoMokemon/bg-top.jpg);
+	background-position: center;
+	background-size: cover;
+	background-attachment: fixed;
+	
+}
+
+
+.titulo {
+ color: rgba(211, 98, 79, 0.849);
+font-family: 'Fredoka One', cursive;
+ width: 350px;
+ margin: auto;
+}
+
+.containerImgPet{
+ width: 200px;
+}
+.select-pet {
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
+}
+
+ul {
+ padding-left: 0;
+ display: flex;
+}
+
+li {
+ list-style: none;
+ margin: 10px;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+}
+
+#ataqueplayer {
+ margin-left: auto;
+ margin-right: auto;
+ width: fit-content;
+ text-align: center;
+}
+
+label {
+ background-color: azure;
+ display: flex;
+ justify-content: space-between;
+ border-radius: 4px;
+ align-items: center;
+ border: 2px rgb(5, 5, 5) solid;
+ padding: 5px;
+}
+
+button {
+ background-color: azure;
+}
+
+input {
+ background-color: aliceblue;
+}
+
+#button-fire {
  background: rgb(231, 95, 4);
 }
-#button-sand{
+
+#button-sand {
  background: rgb(219, 203, 59);
 }
-#button-water{
+
+#button-water {
  background: #1fe;
 }
 
-.hidden{
+.select-mov {
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+}
+
+.hidden {
  display: none;
 }
+
 .button-moveoff {
-display: none;
- background: #1fe ;
+ display: none;
+ background: #1fe;
+ width: 200px;
+ height: 50px;
+ border-radius: 10px;
 }
-.button-moveon{
+
+.button-moveon {
  display: inline;
+}
+
+#button-select-pet {
+ width: 200px;
+ height: 50px;
+ border-radius: 10px;
+}
+
+#restart {
+ display: flex;
+ justify-content: center;
+}
+
+#button-restart {
+ width: 200px;
 }

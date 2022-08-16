@@ -16,7 +16,7 @@ function startPlay() {
  const buttonWater = document.getElementById(`button-water`);
  const buttonSand = document.getElementById(`button-sand`);
  const elegido = enemyPet();
-
+const panelMascotas = document.getElementById(`select-pet`);
  const mokemons = [
   { name: "Charizard", tipo: ["fuego"] },
   { name: `Hipoge`, tipo: [`agua`] },
@@ -32,6 +32,7 @@ function startPlay() {
    let selectedMokemon = element.id;
 
    if (element.checked) {
+    panelMascotas.classList.toggle(`hidden`)
     namePetEnemy.innerHTML = elegido;
     mokemons.forEach((element) => {
      if (element.name == selectedMokemon) {
@@ -61,7 +62,7 @@ function startPlay() {
  let lifeUser = document.getElementById(`vidasjugador`);
  let lifeEnemy = document.getElementById(`vidasenemigo`);
  let ataquePlayer = document.getElementById(`ataqueplayer`);
- let ataqueenemigo = document.getElementById(`ataqueplayer`);
+ 
  let msj = document.getElementById(`menssage`);
 
  function movWeaknes() {
@@ -209,13 +210,13 @@ function startPlay() {
     ataquePlayer.innerHTML = `Atacaste con ${attackUser} y el mokemon enemigo con ${attackEnemy}. Te golpean`;
    } else if (attackUser == undefined && attackEnemy == movsElements[2]) {
     userLifes--;
-    ataquePlayer.innerHTML = `Atacaste con agua y el mokemon enemigo con ${attackEnemy}. ambos han recibido un golpe`;
+    ataquePlayer.innerHTML = `Atacaste con agua y el mokemon enemigo con ${attackEnemy}. recibiste un golpe`;
    } else if (attackUser == movsElements[0] && attackEnemy == undefined) {
     enemyLifes--;
     ataquePlayer.innerHTML = `Atacaste con ${attackUser} y el mokemon enemigo con tierra. Enemigo golpeado`;
    } else if (attackUser == undefined && attackEnemy == undefined) {
     userLifes--;
-    ataquePlayer.innerHTML = `Atacaste con fuego y el mokemon enemigo con fuego. Enemgio golpeado`;
+    ataquePlayer.innerHTML = `Atacaste con agua y el mokemon enemigo con fuego. Enemgio golpeado`;
    } else if (attackUser == movsElements[0] && attackEnemy == movsElements[0]) {
     userLifes--;
     enemyLifes--;
@@ -262,10 +263,10 @@ function startPlay() {
     (attackEnemy == undefined || attackEnemy == movsElements[1])
    ) {
     enemyLifes--;
-    ataquePlayer.innerHTML = `Atacaste con fuego y el mokemon enemigo con fuego y fallo. Golpeaste`;
+    ataquePlayer.innerHTML = `Atacaste con ${movsElements[attackUser]} y el mokemon enemigo con ${movsElements[attackEnemy]} y fallo. Golpeaste`;
    } else if (attackUser == undefined && attackEnemy == movsElements[0]) {
     userLifes--;
-    ataquePlayer.innerHTML = `Te atacaron con agua -1 vida`;
+    ataquePlayer.innerHTML = `Atacas con agua pero fallaste, el enemigo golpea con agua`;
    } else if (attackUser === movsElements[1] && attackEnemy === movsElements[0]) {
     userLifes--;
     ataquePlayer.innerHTML = `Te atacaron con agua -1 vida`;
@@ -436,11 +437,12 @@ function startPlay() {
 
   if (leftLifeEnemies <= 0) {
    alert(`Enemigo derrotado GANASTE`);
-   restart();
+   setTimeout(restart(), 5000);
   }
   if (leftLifePLayer <= 0) {
    alert(`Has sido derrotado PERDISTE`);
-   restart();
+  
+   setTimeout(restart(),5000)
   }
  });
 }
@@ -474,6 +476,17 @@ function setAllyLifes() {
 function setEnemieLifes() {
  const test = document.getElementById(`vidasenemigo`).outerText;
  return test;
+}
+
+// ANADIR BLOQUE
+
+function crearMensajeFinal(){
+ let sectionMsj = document.getElementById(`menssage`);
+ let parrado = document.createElement(`p`)
+
+ parrado.innerHTML = `La puuta madrezzzz`
+ 
+ sectionMsj.
 }
 
 // acction de ataque
