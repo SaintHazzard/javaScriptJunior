@@ -60,7 +60,7 @@ function startPlay() {
  let userLifes = 3;
  let lifeUser = document.getElementById(`vidasjugador`);
  let lifeEnemy = document.getElementById(`vidasenemigo`);
- let ataquePlayer = document.createElement(`p`);
+ let ataquePlayer = document.getElementById(`ataqueplayer`);
  let ataqueenemigo = document.getElementById(`ataqueplayer`);
  let msj = document.getElementById(`menssage`);
 
@@ -178,10 +178,12 @@ function startPlay() {
   const leftLifePLayer = setAllyLifes();
   const leftLifeEnemies = setEnemieLifes();
   if (leftLifeEnemies <= 0) {
-   alert(`Enemigo derrotado`);
+   alert(`Enemigo derrotado GANASTE`);
+   restart()
   }
   if (leftLifePLayer <= 0) {
-   alert(`Has sido derrotado`);
+   alert(`Has sido derrotado PERDISTE`);
+   restart()
   }
  });
 
@@ -307,10 +309,12 @@ function startPlay() {
   const leftLifePLayer = setAllyLifes();
   const leftLifeEnemies = setEnemieLifes();
   if (leftLifeEnemies <= 0) {
-   alert(`Enemigo derrotado`);
+   alert(`Enemigo derrotado GANASTE`);
+   restart();
   }
   if (leftLifePLayer <= 0) {
-   alert(`Has sido derrotado`);
+   alert(`Has sido derrotado PERDISTE`);
+   restart();
   }
  });
 
@@ -431,10 +435,12 @@ function startPlay() {
   const leftLifeEnemies = setEnemieLifes();
 
   if (leftLifeEnemies <= 0) {
-   alert(`Enemigo derrotado`);
+   alert(`Enemigo derrotado GANASTE`);
+   restart();
   }
   if (leftLifePLayer <= 0) {
-   alert(`Has sido derrotado`);
+   alert(`Has sido derrotado PERDISTE`);
+   restart();
   }
  });
 }
