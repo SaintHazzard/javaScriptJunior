@@ -64,9 +64,13 @@ li {
  text-align: center;
 }
 
+
+label:focus{
+ background-color: blueviolet;
+}
+
 .select {
  background-color: azure;
- display: flex;
  justify-content: space-between;
  border-radius: 4px;
  align-items: center;
@@ -75,12 +79,29 @@ li {
 
 }
 
+
+
+
+
+
+
+
 button {
  background-color: azure;
 }
+input{
+ display: none;
+}
 
-input {
- background-color: aliceblue;
+
+input:checked + label {
+ background-color: gray;
+ color: azure;
+    justify-content: space-between;
+    border-radius: 4px;
+    align-items: center;
+    border: 2px rgb(5, 5, 5) solid;
+    padding: 5px;
 }
 
 #button-fire {
