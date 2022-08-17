@@ -18,17 +18,8 @@ const mokemons = [
 
 function startPlay() {
   ///////////// Botones y elementos
-  const mokemons = [
-    ///////////// Botones y elementos
-    { name: "Charizard", tipo: ["fuego", `fuego`] },
-    { name: `Hipoge`, tipo: [`agua`, `agua`] },
-    { name: `Geoude`, tipo: [`tierra`, `tierra`] },
-    { name: `Pydos`, tipo: [`fuego`, `tierra`] },
-    { name: `Tucapalma`, tipo: [`agua`, `tierra`] },
-    { name: `Langostelvis`, tipo: [`agua`, `fuego`] },
-  ];
 
-  const inputCheck = document.querySelectorAll(`.select`);
+  const inputCheck = document.querySelectorAll(`.select1`);
   const movsElements = [`agua`, `fuego`, `tierra`];
   const namePet = document.getElementById(`mascotajugador`);
   const namePetEnemy = document.getElementById(`mascotaenemigo`);
@@ -58,10 +49,10 @@ function startPlay() {
               namePet.innerHTML = element.name;
               divMovs.classList.toggle(`hidden`);
               if (selectedMokemon) {
-                containerImgAlly.src = `/JuegoMokemon/${mokemonForFight.name}.png`;
+                containerImgAlly.src = `${mokemonForFight.name}.png`;
               }
               if (elegidoEnemie) {
-                containerImgEnemie.src = `/JuegoMokemon/${elegidoEnemie.name}.png`;
+                containerImgEnemie.src = `${elegidoEnemie.name}.png`;
               }
               element.tipo.forEach((value) => {
                 if (value == movsElements[0]) {
@@ -360,13 +351,6 @@ function enemyPet() {
  let randomPet = Math.floor(Math.random() * (5 - 0 + 1) + 0);
 
  let eledido = mokemons[randomPet];
- // let eledido = `Hipoge`;
- // let eledido = `Charizard`;
- // let eledido = `Geoude`;
- // let eledido = `Pydos`;
- // let eledido = `Tucapalma`;
-
- // let eledido = `Langostelvis`;
  return eledido;
 }
 
@@ -385,9 +369,7 @@ function setEnemieLifes() {
  return test;
 }
 
-// ANADIR BLOQUE
 
-// acction de ataque
 
 window.addEventListener(`load`, startPlay);
 
@@ -396,27 +378,3 @@ function restart() {
  location.reload();
 }
 
-// if (
-//   (mokemonForFight.tipo =
-//     movsElements[0] && mokemonEnemieForFight.tipo.find((element) => element == movsElements[0]))
-// ) {
-//   console.log(`entra 0 0`);
-//   if (ataqueFuerte > ataqueFuerte) {
-//     console.log(`Golpeas`);
-//   }
-// }
-// if (
-//   (mokemonForFight.tipo =
-//     movsElements[0] && mokemonEnemieForFight.tipo.find((element) => element == movsElements[1]))
-// ) {
-//   console.log(`entra 0 1`);
-//   if (ataqueFuerte >= ataqueDebil) {
-//     console.log(`Golpeas`);
-//   }
-// }
-// if ((mokemonForFight.tipo = movsElements[0] && mokemonEnemieForFight.tipo == movsElements[2])) {
-//   console.log(`entra 0 2`);
-//   if (ataqueDebil < ataqueFuerte) {
-//     console.log(`Te golpean`);
-//   }
-// }
