@@ -233,7 +233,7 @@ function startPlay() {
       let parrafo = document.createElement(`p`);
       let menssage = document.getElementById(`menssageally`);
       parrafo.innerHTML = `Atacaste con ${foundPlayer.tipo[movWeaknes()]} el enemigo con ${
-        tipoAgua || tipoFuego || tipoAgua
+        elegidoEnemie.tipo[movWeaknes()]
       }`;
       menssage.appendChild(parrafo);
     }

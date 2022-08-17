@@ -113,6 +113,7 @@ input {
  background-color: antiquewhite;
  border-radius: 10px;
  text-align: center;
+ border: 10px double rgb(8, 4, 216);
 
 }
 
