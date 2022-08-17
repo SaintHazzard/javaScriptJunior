@@ -23,7 +23,7 @@ function startPlay() {
     { name: "Charizard", tipo: ["fuego", `fuego`] },
     { name: `Hipoge`, tipo: [`agua`, `agua`] },
     { name: `Geoude`, tipo: [`tierra`, `tierra`] },
-    { name: `Pydos`, tipo: [`tierra`, `fuego`] },
+    { name: `Pydos`, tipo: [`fuego`, `tierra`] },
     { name: `Tucapalma`, tipo: [`agua`, `tierra`] },
     { name: `Langostelvis`, tipo: [`agua`, `fuego`] },
   ];
@@ -107,13 +107,13 @@ function startPlay() {
     document.getElementById(`menssageenemie`).classList.remove(`hidden`);
 
     let foundPlayer = mokemons.find((element) => element.name == elegidoAlly);
-
+let valueButton = 0;
     let ataqueFuerte = movStrong();
     let ataqueDebil = movWeaknes();
     let tipoAgua = foundPlayer.tipo.find((element) => element == movsElements[0]);
     let tipoFuego = elegidoEnemie.tipo.find((element) => element == movsElements[1]);
     let tipoTierra = elegidoEnemie.tipo.find((element) => element == movsElements[2]);
-    debugger;
+    
     if (tipoAgua && tipoTierra) {
       if (ataqueDebil > ataqueFuerte) {
         enemyLifes--;
@@ -149,15 +149,16 @@ function startPlay() {
     function crearMensajeAlly() {
       let parrafo = document.createElement(`p`);
       let menssage = document.getElementById(`menssageally`);
-      parrafo.innerHTML = `Atacaste con ${tipoAgua} el enemigo con ${
-        tipoTierra || tipoFuego || tipoAgua
+      parrafo.innerHTML = `Atacaste con ${movsElements[valueButton]} el enemigo con ${elegidoEnemie.tipo[movWeaknes()]
       }`;
       menssage.appendChild(parrafo);
     }
     function crearMensajeEnemie() {
       let parrafo = document.createElement(`p`);
       let menssage = document.getElementById(`menssageenemie`);
-      parrafo.innerHTML = `Atacaste con ${tipoAgua} el enemigo con ${tipoTierra || tipoAgua}`;
+      parrafo.innerHTML = `Atacaste con ${movsElements[valueButton]} el enemigo con ${
+        elegidoEnemie.tipo[movWeaknes()]
+      }`;
       menssage.appendChild(parrafo);
     }
 
@@ -188,7 +189,7 @@ function startPlay() {
     const elegidoAlly = setAllyPet();
     document.getElementById(`menssageally`).classList.remove(`hidden`);
     document.getElementById(`menssageenemie`).classList.remove(`hidden`);
-
+   let valueButton = 1;
     let foundPlayer = mokemons.find((element) => element.name == elegidoAlly);
 
     let ataqueFuerte = movStrong();
@@ -196,7 +197,7 @@ function startPlay() {
     let tipoAgua = elegidoEnemie.tipo.find((element) => element == movsElements[0]);
     let tipoFuego = foundPlayer.tipo.find((element) => element == movsElements[1]);
     let tipoTierra = elegidoEnemie.tipo.find((element) => element == movsElements[2]);
-    debugger;
+    
     if (tipoFuego && tipoAgua) {
       if (ataqueDebil > ataqueFuerte) {
         enemyLifes--;
@@ -232,7 +233,7 @@ function startPlay() {
     function crearMensajeAlly() {
       let parrafo = document.createElement(`p`);
       let menssage = document.getElementById(`menssageally`);
-      parrafo.innerHTML = `Atacaste con ${foundPlayer.tipo[movWeaknes()]} el enemigo con ${
+      parrafo.innerHTML = `Atacaste con ${movsElements[valueButton]} el enemigo con ${
         elegidoEnemie.tipo[movWeaknes()]
       }`;
       menssage.appendChild(parrafo);
@@ -240,7 +241,7 @@ function startPlay() {
     function crearMensajeEnemie() {
       let parrafo = document.createElement(`p`);
       let menssage = document.getElementById(`menssageenemie`);
-      parrafo.innerHTML = `Atacaste con ${foundPlayer.tipo[movWeaknes()]} el enemigo con ${
+      parrafo.innerHTML = `Atacaste con ${movsElements[valueButton]} el enemigo con ${
         elegidoEnemie.tipo[movWeaknes()]
       }`;
       menssage.appendChild(parrafo);
@@ -267,7 +268,8 @@ function startPlay() {
  buttonSand.addEventListener(`click`, () => {
    const elegidoAlly = setAllyPet();
    document.getElementById(`menssageally`).classList.remove(`hidden`);
-   document.getElementById(`menssageenemie`).classList.remove(`hidden`);
+  document.getElementById(`menssageenemie`).classList.remove(`hidden`);
+  let valueButton = 2;
 
    let foundPlayer = mokemons.find((element) => element.name == elegidoAlly);
 
@@ -276,7 +278,7 @@ function startPlay() {
    let tipoAgua = elegidoEnemie.tipo.find((element) => element == movsElements[0]);
    let tipoFuego = elegidoEnemie.tipo.find((element) => element == movsElements[1]);
    let tipoTierra = foundPlayer.tipo.find((element) => element == movsElements[2]);
-   debugger;
+  
    if (tipoTierra && tipoFuego) {
      if (ataqueDebil > ataqueFuerte) {
        enemyLifes--;
@@ -312,7 +314,7 @@ function startPlay() {
    function crearMensajeAlly() {
      let parrafo = document.createElement(`p`);
      let menssage = document.getElementById(`menssageally`);
-     parrafo.innerHTML = `Atacaste con ${foundPlayer.tipo[movWeaknes()]} el enemigo con ${
+     parrafo.innerHTML = `Atacaste con ${movsElements[valueButton]} el enemigo con ${
        elegidoEnemie.tipo[movWeaknes()]
      }`;
      menssage.appendChild(parrafo);
@@ -320,7 +322,7 @@ function startPlay() {
    function crearMensajeEnemie() {
      let parrafo = document.createElement(`p`);
      let menssage = document.getElementById(`menssageenemie`);
-     parrafo.innerHTML = `Atacaste con ${foundPlayer.tipo[movWeaknes()]} el enemigo con ${
+     parrafo.innerHTML = `Atacaste con ${movsElements[valueButton]} el enemigo con ${
        elegidoEnemie.tipo[movWeaknes()]
      }`;
      menssage.appendChild(parrafo);
