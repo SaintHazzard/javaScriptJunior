@@ -19,6 +19,18 @@ font-family: 'Fredoka One', cursive;
  margin: auto;
 }
 
+.button-moveoff {
+ display: none;
+ background: #1fe;
+ width: 200px;
+ height: 50px;
+ border-radius: 10px;
+}
+
+.button-moveon {
+ display: inline-block;
+}
+
 .containerImgPet{
  width: 200px;
 }
@@ -89,17 +101,23 @@ input {
  display: none;
 }
 
-.button-moveoff {
- display: none;
- background: #1fe;
- width: 200px;
- height: 50px;
- border-radius: 10px;
+#menssage{
+ display: flex;
+ align-items: center;
+ justify-content: space-around
 }
 
-.button-moveon {
- display: inline;
+.menssage{
+ width: 400px;
+ height: 300px;
+ background-color: antiquewhite;
+ border-radius: 10px;
+ text-align: center;
+
 }
+
+
+
 
 #button-select-pet {
  width: 200px;
@@ -114,4 +132,10 @@ input {
 
 #button-restart {
  width: 200px;
+ height: 50px;
+ border-radius: 10px;
+}
+
+#aviso{
+ font-size: 7em;
 }

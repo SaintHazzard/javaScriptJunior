@@ -42,21 +42,21 @@
           </label>
         </li>
         <li>
-         <img src="Heatran.webp" alt="" class="containerImgPet">
+         <img src="Pydos.png" alt="" class="containerImgPet">
           <label for=""
             >Pydos ➡ Tierra y fuego
             <input type="radio" class="select" name="select-pet" id="Pydos" />
           </label>
         </li>
         <li>
-         <img src="Swampert.webp" alt="" class="containerImgPet">
+         <img src="Tucapalma.png" alt="" class="containerImgPet">
           <label for=""
             >Tucapalma ➡ Agua y tierra
             <input type="radio" class="select" name="select-pet" id="Tucapalma" />
           </label>
         </li>
         <li>
-         <img src="Volcanion.webp" alt="" class="containerImgPet">
+         <img src="Langostelvis.png" alt="" class="containerImgPet">
           <label for=""
             >Langostelvis ➡ Agua y fuego
             <input type="radio" class="select" name="select-pet" id="Langostelvis" />
@@ -67,21 +67,27 @@
       <button id="button-select-pet">Seleccionar</button>
     </section>
     <section id="select-mov" class="select-mov hidden">
-      <h3>Elige tu ataque:</h3>
-
-      <p>Tu mascota <span id="mascotajugador"> </span> tiene <span id="vidasjugador">3</span> vidas</p>
-      <p>La mascota enemiga <span id="mascotaenemigo"></span> tiene <span id="vidasenemigo">3</span> vidas</p>
+      <h3>Elige tu ataque:
+       
+      </h3>
+       <img src="" alt="" class="containerImgPet" id="imgAlly">
+      <p>Tu <span id="mascotajugador"> </span> tiene <span id="vidasjugador">3</span> vidas</p>
+      <img src="" alt="" class="containerImgPet" id="imgEnemie">
+      <p>El <span id="mascotaenemigo"></span> enemigo tiene <span id="vidasenemigo">3</span> vidas</p>
       <p>
-        <button id="button-fire" class="button-moveoff">Fire 🔥</button>
-        <button id="button-water" class="button-moveoff">Water 💧</button>
-        <button id="button-sand" class="button-moveoff">Sand 🌿</button>
+        <button id="button-fire" class="button-moveoff ">Fire 🔥</button>
+        <button id="button-water" class="button-moveoff ">Water 💧</button>
+        <button id="button-sand" class="button-moveoff ">Sand 🌿</button>
+        <button id="button-restart" onclick="restart()" class="hidden">Volver a jugar</button>
       </p>
     </section>
     <section id="menssage" class="">
-      <p id="ataqueplayer"></p>
+      <section id="menssageally" class="menssage hidden"><h4>Golpeas</h4></section>
+      <p id="aviso"></p>
+      <section id="menssageenemie" class="menssage hidden"><h4>Te golpean</h4></section>
     </section>
     <section id="restart">
-      <button id="button-restart" onclick="restart()">Restart</button>
+      
     </section>
   </body>
   
