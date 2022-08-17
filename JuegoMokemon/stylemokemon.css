@@ -33,7 +33,10 @@ font-family: 'Fredoka One', cursive;
 
 .containerImgPet{
  width: 200px;
+
 }
+
+
 .select-pet {
  display: flex;
  flex-direction: column;
@@ -61,7 +64,7 @@ li {
  text-align: center;
 }
 
-label {
+.select {
  background-color: azure;
  display: flex;
  justify-content: space-between;
@@ -69,6 +72,7 @@ label {
  align-items: center;
  border: 2px rgb(5, 5, 5) solid;
  padding: 5px;
+
 }
 
 button {
@@ -81,6 +85,9 @@ input {
 
 #button-fire {
  background: rgb(231, 95, 4);
+}
+.button-moveon:active {
+    box-shadow: 0px 0px 5px 1px black;
 }
 
 #button-sand {
@@ -95,6 +102,22 @@ input {
  display: flex;
  flex-direction: column;
  align-items: center;
+}
+
+#button-select-pet:hover,#button-restart:hover{
+ background-color: black;
+ color: azure;
+}
+
+.select:hover{
+ 
+ background-color: black;
+ color: azure;
+}
+
+
+#button-select-pet:active{
+ box-shadow: 2px black;
 }
 
 .hidden {
