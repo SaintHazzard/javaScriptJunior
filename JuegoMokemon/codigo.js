@@ -24,7 +24,25 @@ const panelMascotas = document.getElementById(`select-pet`);
 const selectPetPlayer = document.getElementById(`button-select-pet`);
 const containerImgAlly = document.getElementById(`imgAlly`);
 const containerImgEnemie = document.getElementById(`imgEnemie`);
+console.log(inputCheck);
 
+class Mokemon {
+ constructor(name) {
+  this.name = name
+  this.tipo = AttackTipos
+ }
+}
+
+class fuego {
+ constructor(fuego) {
+  this.fuego = fuego
+  
+ }
+}
+
+let Pydos = new Mokemon(`Pydos`,`[tierra,fuego]`)
+
+console.log(Pydos);
   ///////////// SELECION DE MASCOTA
   ///////////// SELECION DE MASCOTA
 function startGame() {{
