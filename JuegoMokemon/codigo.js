@@ -7,8 +7,8 @@ const mokemons = [
   { name: `Tucapalma`, tipo: [`agua`, `tierra`] },
   { name: `Langostelvis`, tipo: [`agua`, `fuego`] },
 ];
-window.addEventListener(`load`, startGame);
-const inputCheck = document.querySelectorAll(`.select1`);
+
+
 const movsElements = [`agua`, `fuego`, `tierra`];
 const namePet = document.getElementById(`mascotajugador`);
 const namePetEnemy = document.getElementById(`mascotaenemigo`);
@@ -23,8 +23,12 @@ const selectPetPlayer = document.getElementById(`button-select-pet`);
 const containerImgAlly = document.getElementById(`imgAlly`);
 const containerImgEnemie = document.getElementById(`imgEnemie`);
 const containersImg = document.querySelectorAll(`.containerImgPet`);
+const addPanelMastocas = document.getElementById(`panel-mascotas`);
 
 
+// const inputCheckNodes = inputCheck.childNodes;
+
+// console.log(inputCheckNodes);
 let opcionDeMokemon;
 
 // CLASES
@@ -70,14 +74,17 @@ class Mokemon1 {
 //     id: `button-electric`,
 //   }
 // );
-console.log(mokemons);
+
 
 ///////////// SELECION DE MASCOTA
 ///////////// SELECION DE MASCOTA
+
+
 function startGame() {
+ 
  mokemons.forEach((element) => {
-   let addPanelMastocas = document.getElementById(`panel-mascotas`);
-   let addPet = document.createElement("li"); // is a node
+  let addPet = document.createElement("li"); // is a node
+  addPet.setAttribute(`id`,`test`)
    opcionDeMokemon = `
       
          <label for="${element.name}"><img src="${element.name}.png" alt="${
@@ -85,55 +92,60 @@ function startGame() {
    }" class="containerImgPet" ></label>
          <input type="radio" class="select1" name="select-pet" id="${element.name}" />
           <label for="${element.name}" class="select"
-            >${element.name} ➡ ${element.tipo[0].toUpperCase()+element.tipo[0].substring(6)}
+            >${element.name} ➡ ${element.tipo}
             
           </label>
-        
-          
-        
   `;
-
+// var parent = document.getElementById("parent"); Como usar childnodes, genera un arreglo dinamico a diferencia de querySelectorAll
+// var child_nodes = parent.childNodes;
    addPet.innerHTML = opcionDeMokemon;
    addPanelMastocas.appendChild(addPet);
    // addPanelMastocas.appendChild(opcionDeMokemon)
- })
-    inputCheck.forEach((element) => {
-      if (element.checked) {
-        let selectedMokemon = element.id;
-        mokemons.forEach((element) => {
-          if (selectedMokemon == element.name) {
-            let mokemonForFight = element;
-            panelMascotas.classList.toggle(`hidden`);
-            namePetEnemy.innerHTML = elegidoEnemie.name;
-            if (mokemonForFight) {
-              namePet.innerHTML = element.name;
-              divMovs.classList.toggle(`hidden`);
-              if (selectedMokemon) {
-                containerImgAlly.src = `${mokemonForFight.name}.png`;
-              }
-              if (elegidoEnemie) {
-                containerImgEnemie.src = `${elegidoEnemie.name}.png`;
-              }
-              element.tipo.forEach((value) => {
-                if (value == movsElements[0]) {
-                  buttonWater.classList.add(`button-moveon`);
-                  inputCheck.forEach((check) => check.classList.add(`hidden`));
-                } else if (value == movsElements[1]) {
-                  buttonFire.classList.add(`button-moveon`);
-                  inputCheck.forEach((check) => check.classList.add(`hidden`));
-                } else if (value == movsElements[2]) {
-                  buttonSand.classList.add(`button-moveon`);
-                  inputCheck.forEach((check) => check.classList.add(`hidden`));
-                }
-              });
-            }
+ });
+const inputCheck = document.querySelectorAll(`.select1`);
+ return inputCheck;
+} 
+
+function seleccionaMokemon() {
+ 
+ startGame().forEach((element) => {
+  if (element.checked) {
+    let selectedMokemon = element.id;
+    mokemons.forEach((element) => {
+      if (selectedMokemon == element.name) {
+        let mokemonForFight = element;
+        panelMascotas.classList.toggle(`hidden`);
+        namePetEnemy.innerHTML = elegidoEnemie.name;
+        if (mokemonForFight) {
+          namePet.innerHTML = element.name;
+          divMovs.classList.toggle(`hidden`);
+          if (selectedMokemon) {
+            containerImgAlly.src = `${mokemonForFight.name}.png`;
           }
-        });
+          if (elegidoEnemie) {
+            containerImgEnemie.src = `${elegidoEnemie.name}.png`;
+          }
+          element.tipo.forEach((value) => {
+            if (value == movsElements[0]) {
+              buttonWater.classList.add(`button-moveon`);           // Muestra el boton agua
+              startGame().forEach((check) => check.classList.add(`hidden`)); // Esconde las tarjetas de los otros pokemones al seleccionar
+            } else if (value == movsElements[1]) {
+              buttonFire.classList.add(`button-moveon`);            // Muestra el boton fuego
+              startGame().forEach((check) => check.classList.add(`hidden`)); // Esconde las tarjetas de los otros pokemones al seleccionar
+            } else if (value == movsElements[2]) {
+              buttonSand.classList.add(`button-moveon`); // Muestra el boton tierra
+              startGame().forEach((check) => check.classList.add(`hidden`)); // Esconde las tarjetas de los otros pokemones al seleccionar
+            } 
+          });
+        }
       }
     });
   }
+});
+ 
+}
 
-selectPetPlayer.addEventListener(`click`, startGame);
+selectPetPlayer.addEventListener(`click`, seleccionaMokemon);
 ///////////// SELECION DE MASCOTA
 ///////////// SELECION DE MASCOTA
 
@@ -347,7 +359,7 @@ function endBattle() {
 
 // funcion para elegir mascota enemiga de manera aleatoria
 function enemyPet() {
-  let randomPet = Math.floor(Math.random() * (5 - 0 + 1) + 0);
+  let randomPet = Math.floor(Math.random() * (mokemons.length - 0 + 1) + 0);
 
   let eledido = mokemons[randomPet];
   return eledido;
@@ -368,7 +380,8 @@ function setEnemieLifes() {
   return test;
 }
 
-window.addEventListener(`load`, window);
+window.addEventListener(`load`, startGame);
+
 
 function restart() {
   location.reload();

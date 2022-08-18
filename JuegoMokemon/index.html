@@ -4,12 +4,16 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
-    <link rel="stylesheet" href="stylemokemon.css">
+
+    <link rel="stylesheet" href="stylemokemon.css" />
     <title>JavascriptJunior</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap"
+      rel="stylesheet"
+    />
+    <script defer src="codigo.js" ></script>
   </head>
 
   <body onload="addValue()">
@@ -19,25 +23,31 @@
       <h2>Elige tu mascota:</h2>
       <h3>MASCOTAS</h3>
       <ul id="panel-mascotas">
-        
-       
+
       </ul>
 
       <button id="button-select-pet">Seleccionar</button>
     </section>
+
+
+
+    
     <section id="select-mov" class="select-mov hidden">
-      <h3>Elige tu ataque:
-       
-      </h3>
-       <img src="" alt="" class="containerImgPet" id="imgAlly">
+      <h3>Elige tu ataque:</h3>
+      <img src="" alt="" class="containerImgPet" id="imgAlly" />
       <p>Tu <span id="mascotajugador"> </span> tiene <span id="vidasjugador">3</span> vidas</p>
-      <img src="" alt="" class="containerImgPet" id="imgEnemie">
-      <p>El <span id="mascotaenemigo"></span> enemigo tiene <span id="vidasenemigo">3</span> vidas</p>
+      <img src="" alt="" class="containerImgPet" id="imgEnemie" />
       <p>
-        <button id="button-fire" class="button-moveoff ">Fire 🔥</button>
-        <button id="button-water" class="button-moveoff ">Water 💧</button>
-        <button id="button-sand" class="button-moveoff ">Sand 🌿</button>
-        <button id="button-restart" onclick="restart()" class="buttonrestart hidden">Volver a jugar</button>
+        El <span id="mascotaenemigo"></span> enemigo tiene <span id="vidasenemigo">3</span> vidas
+      </p>
+
+      <p id="panel-ataques">
+        <button id="button-fuego" class="button-moveoff">Fire 🔥</button>
+        <button id="button-agua" class="button-moveoff">Water 💧</button>
+        <button id="button-tierra" class="button-moveoff">Sand 🌿</button>
+        <button id="button-restart" onclick="restart()" class="buttonrestart hidden">
+          Volver a jugar
+        </button>
       </p>
     </section>
     <section id="menssage" class="">
@@ -45,10 +55,7 @@
       <p id="aviso"></p>
       <section id="menssageenemie" class="menssage hidden"><h4>Te golpean</h4></section>
     </section>
-    <section id="restart">
-      
-    </section>
-    <script src="codigo.js"></script>
+    <section id="restart"></section>
+    
   </body>
-  
 </html>

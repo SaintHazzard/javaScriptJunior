@@ -104,18 +104,18 @@ input:checked + label {
     padding: 5px;
 }
 
-#button-fire {
+#button-fuego {
  background: rgb(231, 95, 4);
 }
 .button-moveon:active {
     box-shadow: 0px 0px 5px 1px black;
 }
 
-#button-sand {
+#button-tierra {
  background: rgb(219, 203, 59);
 }
 
-#button-water {
+#button-agua {
  background: #1fe;
 }
 
