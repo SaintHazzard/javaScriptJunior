@@ -1,21 +1,65 @@
+window.addEventListener(`load`, startGame);
 ///////////// Botones y elementos
 const mokemons = [
-  { name: "Charizard", tipo: [ `fuego`,`fuego`] },
-  { name: `Hipoge`, tipo: [`agua`, `agua`] },
-  { name: `Geoude`, tipo: [`tierra`, `tierra`] },
-  { name: `Pydos`, tipo: [`tierra`, `fuego`] },
-  { name: `Tucapalma`, tipo: [`agua`, `tierra`] },
-  { name: `Langostelvis`, tipo: [`agua`, `fuego`] },
+  {
+    name: "Charizard",
+    tipo: [`fuego`],
+    ataques: [
+      { id: `button-fuego`, nombre: `Fuego` },
+      { id: `button-fuego`, nombre: `Fuego` },
+    ],
+  },
+  {
+    name: `Hipoge`,
+    tipo: [`agua`],
+    ataques: [
+      { id: `button-agua`, nombre: `Agua` },
+      { id: `button-agua`, nombre: `Agua` },      
+    ],
+  },
+  {
+    name: `Geoude`,
+    tipo: [`tierra`],
+    ataques: [
+      { id: `button-tierra`, nombre: `Agua` },
+      { id: `button-tierra`, nombre: `Agua` },
+    ],
+  },
+  {
+    name: `Pydos`,
+    tipo: [`tierra`, `fuego`],
+    ataques: [
+      { id: `button-tierra`, nombre: `Tierra` },
+      { id: `button-fuego`, nombre: `Fuego` },
+    ],
+  },
+  {
+    name: `Tucapalma`,
+    tipo: [`agua`, `tierra`],
+    ataques: [
+      { id: `button-agua`, nombre: `Agua` },
+      { id: `button-tierra`, nombre: `Tierra` },
+    ],
+  },
+  {
+    name: `Langostelvis`,
+    tipo: [`agua`, `fuego`],
+    ataques: [
+      { id: `button-agua`, nombre: `Aguabbb` },
+      { id: `button-fuego`, nombre: `Fuego` },
+    ],
+  },
 ];
+
 
 
 const movsElements = [`agua`, `fuego`, `tierra`];
 const namePet = document.getElementById(`mascotajugador`);
 const namePetEnemy = document.getElementById(`mascotaenemigo`);
 const divMovs = document.getElementById(`select-mov`);
-const buttonFire = document.getElementById(`button-fire`);
-const buttonWater = document.getElementById(`button-water`);
-const buttonSand = document.getElementById(`button-sand`);
+let buttonFire 
+let buttonWater 
+let buttonSand
 const elegidoEnemie = enemyPet();
 const refresh = document.getElementById(`button-restart`);
 const panelMascotas = document.getElementById(`select-pet`);
@@ -24,7 +68,7 @@ const containerImgAlly = document.getElementById(`imgAlly`);
 const containerImgEnemie = document.getElementById(`imgEnemie`);
 const containersImg = document.querySelectorAll(`.containerImgPet`);
 const addPanelMastocas = document.getElementById(`panel-mascotas`);
-
+const panelAtaques = document.getElementById(`panel-ataques`);
 
 // const inputCheckNodes = inputCheck.childNodes;
 
@@ -75,75 +119,114 @@ class Mokemon1 {
 //   }
 // );
 
-
 ///////////// SELECION DE MASCOTA
 ///////////// SELECION DE MASCOTA
-
 
 function startGame() {
- 
- mokemons.forEach((element) => {
-  let addPet = document.createElement("li"); // is a node
-  addPet.setAttribute(`id`,`test`)
-   opcionDeMokemon = `
+  mokemons.forEach((element) => {
+    let addPet = document.createElement("li"); // is a node
+    addPet.setAttribute(`id`, `test`);
+    opcionDeMokemon = `
       
-         <label for="${element.name}"><img src="${element.name}.png" alt="${
-     element.name
-   }" class="containerImgPet" ></label>
+         <label for="${element.name}"><img src="${element.name}.png" alt="${element.name}" class="containerImgPet" ></label>
          <input type="radio" class="select1" name="select-pet" id="${element.name}" />
           <label for="${element.name}" class="select"
             >${element.name} ➡ ${element.tipo}
             
           </label>
   `;
-// var parent = document.getElementById("parent"); Como usar childnodes, genera un arreglo dinamico a diferencia de querySelectorAll
-// var child_nodes = parent.childNodes;
-   addPet.innerHTML = opcionDeMokemon;
-   addPanelMastocas.appendChild(addPet);
-   // addPanelMastocas.appendChild(opcionDeMokemon)
- });
-const inputCheck = document.querySelectorAll(`.select1`);
- return inputCheck;
-} 
+    // var parent = document.getElementById("parent"); Como usar childnodes, genera un arreglo dinamico a diferencia de querySelectorAll
+    // var child_nodes = parent.childNodes;
+    addPet.innerHTML = opcionDeMokemon;
+    addPanelMastocas.appendChild(addPet);
+    // addPanelMastocas.appendChild(opcionDeMokemon)
+  });
+ inputCheck = document.querySelectorAll(`.select1`);
+ 
+  return inputCheck;
+}
 
 function seleccionaMokemon() {
+
  
  startGame().forEach((element) => {
-  if (element.checked) {
-    let selectedMokemon = element.id;
-    mokemons.forEach((element) => {
-      if (selectedMokemon == element.name) {
-        let mokemonForFight = element;
-        panelMascotas.classList.toggle(`hidden`);
-        namePetEnemy.innerHTML = elegidoEnemie.name;
-        if (mokemonForFight) {
-          namePet.innerHTML = element.name;
-          divMovs.classList.toggle(`hidden`);
-          if (selectedMokemon) {
-            containerImgAlly.src = `${mokemonForFight.name}.png`;
+    if (element.checked) {
+     let selectedMokemon = element.id;
+     console.log(selectedMokemon);
+      mokemons.forEach((element) => {
+        if (selectedMokemon == element.name) {
+          let mokemonForFight = element;
+          panelMascotas.classList.toggle(`hidden`);
+          namePetEnemy.innerHTML = elegidoEnemie.name;
+          if (mokemonForFight) {
+            namePet.innerHTML = element.name;
+            divMovs.classList.toggle(`hidden`);
+            if (selectedMokemon) {
+              containerImgAlly.src = `${mokemonForFight.name}.png`;
+            }
+            if (elegidoEnemie) {
+              containerImgEnemie.src = `${elegidoEnemie.name}.png`;
+            }
+
+            // element.tipo.forEach((value) => {
+            //   if (value == movsElements[0]) {
+            //     buttonWater.classList.add(`button-moveon`);           // Muestra el boton agua
+            //     startGame().forEach((check) => check.classList.add(`hidden`)); // Esconde las tarjetas de los otros pokemones al seleccionar
+            //   } else if (value == movsElements[1]) {
+            //     buttonFire.classList.add(`button-moveon`);            // Muestra el boton fuego
+            //     startGame().forEach((check) => check.classList.add(`hidden`)); // Esconde las tarjetas de los otros pokemones al seleccionar
+            //   } else if (value == movsElements[2]) {
+            //     buttonSand.classList.add(`button-moveon`); // Muestra el boton tierra
+            //     startGame().forEach((check) => check.classList.add(`hidden`)); // Esconde las tarjetas de los otros pokemones al seleccionar
+            //   }
+            // });
           }
-          if (elegidoEnemie) {
-            containerImgEnemie.src = `${elegidoEnemie.name}.png`;
-          }
-          element.tipo.forEach((value) => {
-            if (value == movsElements[0]) {
-              buttonWater.classList.add(`button-moveon`);           // Muestra el boton agua
-              startGame().forEach((check) => check.classList.add(`hidden`)); // Esconde las tarjetas de los otros pokemones al seleccionar
-            } else if (value == movsElements[1]) {
-              buttonFire.classList.add(`button-moveon`);            // Muestra el boton fuego
-              startGame().forEach((check) => check.classList.add(`hidden`)); // Esconde las tarjetas de los otros pokemones al seleccionar
-            } else if (value == movsElements[2]) {
-              buttonSand.classList.add(`button-moveon`); // Muestra el boton tierra
-              startGame().forEach((check) => check.classList.add(`hidden`)); // Esconde las tarjetas de los otros pokemones al seleccionar
-            } 
-          });
         }
-      }
-    });
-  }
-});
+      });
+    extraerAtaques(selectedMokemon);}
+  ;});
+}
+
+
+function mostrarAtaques(ataques) {
+  ataques.forEach((ataque) => {
+    ataquesMokemon = `
+   <button id="${ataque.id}" class="button-moveoff">${ataque.nombre}</button> `;
+    panelAtaques.innerHTML += ataquesMokemon;
+  });
+ console.log(ataques);
+ debugger
+ let buttonWater = document.getElementById(`button-agua`);
+ let buttonFire = document.getElementById(`button-fuego`);
+ let buttonSand = document.getElementById(`button-tierra`);
+ if (ataques.find(element => element == `Fuego`)) {
+ buttonFire.addEventListener(`click`, ataqueFuego);
+ }
+ if (ataques.find(element => element == `Agua`)) {
+   buttonWater.addEventListener(`click`, ataqueAgua);
+ }
+ if (ataques.find(element => element == `Tierra`)) {
+   buttonSand.addEventListener(`click`, ataqueTierra);
+ }
+ 
  
 }
+
+function extraerAtaques(selectedMokemon) {
+  let ataques;
+  for (let i = 0; i < mokemons.length; i++) {
+    if (selectedMokemon == mokemons[i].name) {
+     ataques = mokemons[i].ataques; 
+     
+    }
+ }
+
+ mostrarAtaques(ataques);
+ 
+ 
+}
+
+
 
 selectPetPlayer.addEventListener(`click`, seleccionaMokemon);
 ///////////// SELECION DE MASCOTA
@@ -170,7 +253,98 @@ function mostrarRegistroCombate() {
 
 // BOTON ATAQUE AGUA
 // BOTON ATAQUE AGUA
-buttonWater.addEventListener(`click`, () => {
+
+// BOTON ATAQUE AGUA
+// BOTON ATAQUE AGUA
+
+//// BOTON ATAQUE FUEGO
+//// BOTON ATAQUE FUEGO
+
+//// BOTON ATAQUE FUEGO
+//// BOTON ATAQUE FUEGO
+
+////// BOTON ATAQUE ARENA
+////// BOTON ATAQUE ARENA
+
+////// BOTON ATAQUE ARENA
+////// BOTON ATAQUE ARENA
+
+function crearMensajeAlly(valueButton) {
+  let parrafo = document.createElement(`p`);
+  let menssage = document.getElementById(`menssageally`);
+  parrafo.innerHTML = `Atacaste con ${movsElements[valueButton]} el enemigo con ${
+    elegidoEnemie.tipo[movWeaknes()]
+  }`;
+  menssage.appendChild(parrafo);
+}
+function crearMensajeEnemie(valueButton) {
+  let parrafo = document.createElement(`p`);
+  let menssage = document.getElementById(`menssageenemie`);
+  parrafo.innerHTML = `Atacaste con ${movsElements[valueButton]} el enemigo con ${
+    elegidoEnemie.tipo[movWeaknes()]
+  }`;
+  menssage.appendChild(parrafo);
+}
+
+function endBattle() {
+  const leftLifePLayer = setAllyLifes();
+  const leftLifeEnemies = setEnemieLifes();
+  console.log(leftLifeEnemies);
+  if (leftLifeEnemies <= 0) {
+    document.getElementById(`aviso`).innerText = `GANASTE`;
+    document.getElementById(`button-restart`).classList.remove(`hidden`);
+    buttonFire.disabled = true;
+    buttonWater.disabled = true;
+    buttonSand.disabled = true;
+  }
+  if (leftLifePLayer <= 0) {
+    document.getElementById(`aviso`).innerText = `PERDISTE`;
+    document.getElementById(`button-restart`).classList.remove(`hidden`);
+    buttonFire.disabled = true;
+    buttonWater.disabled = true;
+    buttonSand.disabled = true;
+  }
+}
+
+// funcion para elegir mascota enemiga de manera aleatoria
+function enemyPet() {
+  let randomPet = Math.floor(Math.random() * (mokemons.length - 1) + 0);
+
+  let eledido = mokemons[randomPet];
+  return eledido;
+}
+
+// funcion para elegir mascota del jugador
+
+function setAllyPet() {
+  const test = document.getElementById(`mascotajugador`).outerText;
+  return test;
+}
+function setAllyLifes() {
+  const test = document.getElementById(`vidasjugador`).outerText;
+  return test;
+}
+function setEnemieLifes() {
+  const test = document.getElementById(`vidasenemigo`).outerText;
+  return test;
+}
+
+window.addEventListener(`load`, startGame);
+
+function restart() {
+  location.reload();
+}
+
+// add value in index.html
+function addValue() {
+  let inputCheck = document.querySelectorAll(`.select1`);
+  inputCheck.forEach((Element) => {
+    let addValue = Element.getAttribute(`id`);
+    Element.setAttribute(`value`, addValue);
+  });
+}
+
+function ataqueAgua() {
   const elegidoAlly = setAllyPet();
   mostrarRegistroCombate();
 
@@ -215,13 +389,9 @@ buttonWater.addEventListener(`click`, () => {
   }
 
   endBattle();
-});
-// BOTON ATAQUE AGUA
-// BOTON ATAQUE AGUA
+}
 
-//// BOTON ATAQUE FUEGO
-//// BOTON ATAQUE FUEGO
-buttonFire.addEventListener(`click`, () => {
+function ataqueFuego() {
   const elegidoAlly = setAllyPet();
   mostrarRegistroCombate();
   let valueButton = 1;
@@ -265,13 +435,9 @@ buttonFire.addEventListener(`click`, () => {
     lifeUser.innerHTML = userLifes;
   }
   endBattle();
-});
-//// BOTON ATAQUE FUEGO
-//// BOTON ATAQUE FUEGO
+}
 
-////// BOTON ATAQUE ARENA
-////// BOTON ATAQUE ARENA
-buttonSand.addEventListener(`click`, () => {
+function ataqueTierra() {
   const elegidoAlly = setAllyPet();
   mostrarRegistroCombate();
   let valueButton = 2;
@@ -316,82 +482,4 @@ buttonSand.addEventListener(`click`, () => {
     lifeUser.innerHTML = userLifes;
   }
   endBattle();
-});
-////// BOTON ATAQUE ARENA
-////// BOTON ATAQUE ARENA
-
-function crearMensajeAlly(valueButton) {
-  let parrafo = document.createElement(`p`);
-  let menssage = document.getElementById(`menssageally`);
-  parrafo.innerHTML = `Atacaste con ${movsElements[valueButton]} el enemigo con ${
-    elegidoEnemie.tipo[movWeaknes()]
-  }`;
-  menssage.appendChild(parrafo);
-}
-function crearMensajeEnemie(valueButton) {
-  let parrafo = document.createElement(`p`);
-  let menssage = document.getElementById(`menssageenemie`);
-  parrafo.innerHTML = `Atacaste con ${movsElements[valueButton]} el enemigo con ${
-    elegidoEnemie.tipo[movWeaknes()]
-  }`;
-  menssage.appendChild(parrafo);
-}
-
-function endBattle() {
-  const leftLifePLayer = setAllyLifes();
-  const leftLifeEnemies = setEnemieLifes();
-  console.log(leftLifeEnemies);
-  if (leftLifeEnemies <= 0) {
-    document.getElementById(`aviso`).innerText = `GANASTE`;
-    document.getElementById(`button-restart`).classList.remove(`hidden`);
-    buttonFire.disabled = true;
-    buttonWater.disabled = true;
-    buttonSand.disabled = true;
-  }
-  if (leftLifePLayer <= 0) {
-    document.getElementById(`aviso`).innerText = `PERDISTE`;
-    document.getElementById(`button-restart`).classList.remove(`hidden`);
-    buttonFire.disabled = true;
-    buttonWater.disabled = true;
-    buttonSand.disabled = true;
-  }
-}
-
-// funcion para elegir mascota enemiga de manera aleatoria
-function enemyPet() {
-  let randomPet = Math.floor(Math.random() * (mokemons.length - 0 + 1) + 0);
-
-  let eledido = mokemons[randomPet];
-  return eledido;
-}
-
-// funcion para elegir mascota del jugador
-
-function setAllyPet() {
-  const test = document.getElementById(`mascotajugador`).outerText;
-  return test;
-}
-function setAllyLifes() {
-  const test = document.getElementById(`vidasjugador`).outerText;
-  return test;
-}
-function setEnemieLifes() {
-  const test = document.getElementById(`vidasenemigo`).outerText;
-  return test;
-}
-
-window.addEventListener(`load`, startGame);
-
-
-function restart() {
-  location.reload();
-}
-
-// add value in index.html
-function addValue() {
-  let inputCheck = document.querySelectorAll(`.select1`);
-  inputCheck.forEach((Element) => {
-    let addValue = Element.getAttribute(`id`);
-    Element.setAttribute(`value`, addValue);
-  });
 }
