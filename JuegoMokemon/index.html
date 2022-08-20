@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+<script defer src="codigo.js"></script>
   </head>
 
   <body onload="addValue()">
@@ -33,12 +34,13 @@
       <p>Tu <span id="mascotajugador"> </span> tiene <span id="vidasjugador">3</span> vidas</p>
       <img src="" alt="" class="containerImgPet" id="imgEnemie">
       <p>El <span id="mascotaenemigo"></span> enemigo tiene <span id="vidasenemigo">3</span> vidas</p>
-      <p>
+      <div id="panel-ataques">
         <button id="button-fire" class="button-moveoff ">Fire 🔥</button>
         <button id="button-water" class="button-moveoff ">Water 💧</button>
         <button id="button-sand" class="button-moveoff ">Sand 🌿</button>
-        <button id="button-restart" onclick="restart()" class="buttonrestart hidden">Volver a jugar</button>
-      </p>
+        
+      </div>
+      <button id="button-restart" onclick="restart()" class="buttonrestart hidden">Volver a jugar</button>
     </section>
     <section id="menssage" class="">
       <section id="menssageally" class="menssage hidden"><h4>Golpeas</h4></section>
@@ -48,7 +50,7 @@
     <section id="restart">
       
     </section>
-    <script src="codigo.js"></script>
+    
   </body>
   
 </html>

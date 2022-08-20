@@ -1,32 +1,80 @@
 ///////////// Botones y elementos
 const mokemons = [
-  { name: "Charizard", tipo: [ `fuego`,`fuego`] },
-  { name: `Hipoge`, tipo: [`agua`, `agua`] },
-  { name: `Geoude`, tipo: [`tierra`, `tierra`] },
-  { name: `Pydos`, tipo: [`tierra`, `fuego`] },
-  { name: `Tucapalma`, tipo: [`agua`, `tierra`] },
-  { name: `Langostelvis`, tipo: [`agua`, `fuego`] },
+  {
+    name: "Charizard",
+    tipo: [`fuego`, `fuego`],
+    ataques: [
+      { name: `Fire 🔥`, id: `button-fire` },
+      { name: `Fire 🔥`, id: `button-fire` },
+    ],
+  },
+  {
+    name: `Hipoge`,
+    tipo: [`agua`, `agua`],
+    ataques: [
+      { name: `Water 💧`, id: `button-water` },
+      { name: `Water 💧`, id: `button-water` },
+    ],
+  },
+  {
+    name: `Geoude`,
+    tipo: [`tierra`, `tierra`],
+    ataques: [
+      { name: `Sand 🌿`, id: `button-sand` },
+      { name: `Sand 🌿`, id: `button-sand` },
+    ],
+  },
+  {
+    name: `Pydos`,
+    tipo: [`tierra`, `fuego`],
+    ataques: [
+      { name: `Sand 🌿`, id: `button-sand` },
+      { name: `Fire 🔥`, id: `button-fire` },
+    ],
+  },
+  {
+    name: `Tucapalma`,
+    tipo: [`agua`, `tierra`],
+    ataques: [
+      { name: `Water 💧`, id: `button-water` },
+      { name: `Sand 🌿`, id: `button-sand` },
+    ],
+  },
+  {
+    name: `Langostelvis`,
+    tipo: [`agua`, `fuego`],
+    ataques: [
+      { name: `Water 💧`, id: `button-water` },
+      { name: `Fire 🔥`, id: `button-fire` },
+    ],
+  },
 ];
 window.addEventListener(`load`, startGame);
-const inputCheck = document.querySelectorAll(`.select1`);
+
 const movsElements = [`agua`, `fuego`, `tierra`];
 const namePet = document.getElementById(`mascotajugador`);
 const namePetEnemy = document.getElementById(`mascotaenemigo`);
 const divMovs = document.getElementById(`select-mov`);
-const buttonFire = document.getElementById(`button-fire`);
-const buttonWater = document.getElementById(`button-water`);
-const buttonSand = document.getElementById(`button-sand`);
+
 const elegidoEnemie = enemyPet();
 const refresh = document.getElementById(`button-restart`);
 const panelMascotas = document.getElementById(`select-pet`);
+const subPanelMascotas = document.getElementById(`panel-mascotas`);
 const selectPetPlayer = document.getElementById(`button-select-pet`);
 const containerImgAlly = document.getElementById(`imgAlly`);
 const containerImgEnemie = document.getElementById(`imgEnemie`);
 const containersImg = document.querySelectorAll(`.containerImgPet`);
+const panelAtaques = document.getElementById(`panel-ataques`);
+let child=subPanelMascotas.childNodes
+console.log(child);
 
 
 let opcionDeMokemon;
-
+let buttonFire = document.getElementById(`button-fire`);
+let buttonWater = document.getElementById(`button-water`);
+let buttonSand = document.getElementById(`button-sand`);
+// let inputCheck = startGame();
+// console.log(inputCheck);
 // CLASES
 class Mokemon {
   constructor(name, tipo) {
@@ -76,6 +124,7 @@ console.log(mokemons);
 ///////////// SELECION DE MASCOTA
 function startGame() {
  mokemons.forEach((element) => {
+  
    let addPanelMastocas = document.getElementById(`panel-mascotas`);
    let addPet = document.createElement("li"); // is a node
    opcionDeMokemon = `
@@ -85,7 +134,7 @@ function startGame() {
    }" class="containerImgPet" ></label>
          <input type="radio" class="select1" name="select-pet" id="${element.name}" />
           <label for="${element.name}" class="select"
-            >${element.name} ➡ ${element.tipo[0].toUpperCase()+element.tipo[0].substring(6)}
+            >${element.name} ➡ ${element.tipo}
             
           </label>
         
@@ -96,44 +145,58 @@ function startGame() {
    addPet.innerHTML = opcionDeMokemon;
    addPanelMastocas.appendChild(addPet);
    // addPanelMastocas.appendChild(opcionDeMokemon)
+  
+  
  })
-    inputCheck.forEach((element) => {
-      if (element.checked) {
-        let selectedMokemon = element.id;
-        mokemons.forEach((element) => {
-          if (selectedMokemon == element.name) {
-            let mokemonForFight = element;
-            panelMascotas.classList.toggle(`hidden`);
-            namePetEnemy.innerHTML = elegidoEnemie.name;
-            if (mokemonForFight) {
-              namePet.innerHTML = element.name;
-              divMovs.classList.toggle(`hidden`);
-              if (selectedMokemon) {
-                containerImgAlly.src = `${mokemonForFight.name}.png`;
-              }
-              if (elegidoEnemie) {
-                containerImgEnemie.src = `${elegidoEnemie.name}.png`;
-              }
-              element.tipo.forEach((value) => {
-                if (value == movsElements[0]) {
-                  buttonWater.classList.add(`button-moveon`);
-                  inputCheck.forEach((check) => check.classList.add(`hidden`));
-                } else if (value == movsElements[1]) {
-                  buttonFire.classList.add(`button-moveon`);
-                  inputCheck.forEach((check) => check.classList.add(`hidden`));
-                } else if (value == movsElements[2]) {
-                  buttonSand.classList.add(`button-moveon`);
-                  inputCheck.forEach((check) => check.classList.add(`hidden`));
-                }
-              });
-            }
+ let inputCheck = document.querySelectorAll(`.select1`);
+    return inputCheck
+}
+  
+function selecionaMascota() {
+ 
+ 
+ startGame().forEach((element) => {
+  let inputCheck = document.querySelectorAll(`.select1`)
+  
+  
+   if (element.checked) {
+     let selectedMokemon = element.id;
+    mokemons.forEach((element) => {
+       if (selectedMokemon == element.name) {
+         let mokemonForFight = element;
+         panelMascotas.classList.toggle(`hidden`);
+         namePetEnemy.innerHTML = elegidoEnemie.name;
+         if (mokemonForFight) {
+           namePet.innerHTML = element.name;
+           divMovs.classList.toggle(`hidden`);
+           if (selectedMokemon) {
+             containerImgAlly.src = `${mokemonForFight.name}.png`;
+           }
+           if (elegidoEnemie) {
+             containerImgEnemie.src = `${elegidoEnemie.name}.png`;
           }
-        });
-      }
-    });
-  }
+          
+           element.tipo.forEach((value) => {
+             if (value == movsElements[0]) {
+               buttonWater.classList.add(`button-moveon`);
+               // inputCheck.forEach((check) => check.classList.add(`hidden`));
+             } else if (value == movsElements[1]) {
+               buttonFire.classList.add(`button-moveon`);
+               // inputCheck.forEach((check) => check.classList.add(`hidden`));
+             } else if (value == movsElements[2]) {
+               buttonSand.classList.add(`button-moveon`);
+               // inputCheck.forEach((check) => check.classList.add(`hidden`));
+             }
+           });
+         }
+       }
+     });
+   extraerAtaques(selectedMokemon);}
+ });
+ 
+}
 
-selectPetPlayer.addEventListener(`click`, startGame);
+selectPetPlayer.addEventListener(`click`, selecionaMascota);
 ///////////// SELECION DE MASCOTA
 ///////////// SELECION DE MASCOTA
 
@@ -368,10 +431,36 @@ function setEnemieLifes() {
   return test;
 }
 
-window.addEventListener(`load`, window);
+window.addEventListener(`load`, startGame);
 
 function restart() {
   location.reload();
+}
+
+function extraerAtaques(selectedMokemon) {
+ let ataques
+ 
+ for (let i = 0; i < mokemons.length; i++) {
+   if (selectedMokemon === mokemons[i].name) {
+     ataques = mokemons[i].ataques;
+   }
+ }
+ 
+ mostrarAtaques(ataques)
+ 
+}
+
+function mostrarAtaques(ataques) {
+ 
+ ataques.forEach((ataque) => {
+  btnGeneratorAtaque = ` 
+  <button id="${ataque.id}1" class="button-moveon">${ataque.name}</button>
+ `
+  panelAtaques.innerHTML += btnGeneratorAtaque
+})
+ 
+ 
+ 
 }
 
 // add value in index.html

@@ -22,13 +22,14 @@ font-family: 'Fredoka One', cursive;
 .button-moveoff {
  display: none;
  background: #1fe;
- width: 200px;
- height: 50px;
- border-radius: 10px;
+
 }
 
 .button-moveon {
  display: inline-block;
+  width: 200px;
+ height: 50px;
+ border-radius: 10px;
 }
 
 .containerImgPet{
