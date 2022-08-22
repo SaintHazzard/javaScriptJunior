@@ -4,51 +4,52 @@ const mokemons = [
     name: "Charizard",
     tipo: [`fuego`, `fuego`],
     ataques: [
-      { name: `Fire 🔥`, id: `button-fire` },
-      { name: `Fire 🔥`, id: `button-fire` },
+      { name: `Fire 🔥`, id: `button-fire`, function: `Fire` },
+      { name: `Fire 🔥`, id: `button-fire`, function: `Fire` },
     ],
   },
   {
     name: `Hipoge`,
     tipo: [`agua`, `agua`],
     ataques: [
-      { name: `Water 💧`, id: `button-water` },
-      { name: `Water 💧`, id: `button-water` },
+      { name: `Water 💧`, id: `button-water`, function: `Water` },
+      { name: `Water 💧`, id: `button-water`, function: `Water` },
     ],
   },
   {
     name: `Geoude`,
     tipo: [`tierra`, `tierra`],
     ataques: [
-      { name: `Sand 🌿`, id: `button-sand` },
-      { name: `Sand 🌿`, id: `button-sand` },
+      { name: `Sand 🌿`, id: `button-sand`, function: `Sand` },
+      { name: `Sand 🌿`, id: `button-sand`, function: `Sand` },
     ],
   },
   {
     name: `Pydos`,
     tipo: [`tierra`, `fuego`],
     ataques: [
-      { name: `Sand 🌿`, id: `button-sand` },
-      { name: `Fire 🔥`, id: `button-fire` },
+      { name: `Sand 🌿`, id: `button-sand`, function: `Sand` },
+      { name: `Fire 🔥`, id: `button-fire`, function: `Fire` },
     ],
   },
   {
     name: `Tucapalma`,
     tipo: [`agua`, `tierra`],
     ataques: [
-      { name: `Water 💧`, id: `button-water` },
-      { name: `Sand 🌿`, id: `button-sand` },
+      { name: `Water 💧`, id: `button-water`, function: `Water` },
+      { name: `Sand 🌿`, id: `button-sand`, function: `Sand` },
     ],
   },
   {
     name: `Langostelvis`,
     tipo: [`agua`, `fuego`],
     ataques: [
-      { name: `Water 💧`, id: `button-water` },
-      { name: `Fire 🔥`, id: `button-fire` },
+      { name: `Water 💧`, id: `button-water`, function: `Water` },
+      { name: `Fire 🔥`, id: `button-fire`, function: `Fire` },
     ],
   },
 ];
+
 window.addEventListener(`load`, startGame);
 
 const movsElements = [`agua`, `fuego`, `tierra`];
@@ -70,9 +71,7 @@ console.log(child);
 
 
 let opcionDeMokemon;
-let buttonFire = document.getElementById(`button-fire`);
-let buttonWater = document.getElementById(`button-water`);
-let buttonSand = document.getElementById(`button-sand`);
+
 // let inputCheck = startGame();
 // console.log(inputCheck);
 // CLASES
@@ -178,20 +177,21 @@ function selecionaMascota() {
           
            element.tipo.forEach((value) => {
              if (value == movsElements[0]) {
-               buttonWater.classList.add(`button-moveon`);
+               // buttonWater.classList.add(`button-moveon`);
                // inputCheck.forEach((check) => check.classList.add(`hidden`));
              } else if (value == movsElements[1]) {
-               buttonFire.classList.add(`button-moveon`);
+               // buttonFire.classList.add(`button-moveon`);
                // inputCheck.forEach((check) => check.classList.add(`hidden`));
              } else if (value == movsElements[2]) {
-               buttonSand.classList.add(`button-moveon`);
+               // buttonSand.classList.add(`button-moveon`);
                // inputCheck.forEach((check) => check.classList.add(`hidden`));
              }
            });
          }
        }
      });
-   extraerAtaques(selectedMokemon);}
+    extraerAtaques(selectedMokemon);
+   } 
  });
  
 }
@@ -221,153 +221,19 @@ function mostrarRegistroCombate() {
 
 // BOTON ATAQUE AGUA
 // BOTON ATAQUE AGUA
-buttonWater.addEventListener(`click`, () => {
-  const elegidoAlly = setAllyPet();
-  mostrarRegistroCombate();
-
-  let foundPlayer = mokemons.find((element) => element.name == elegidoAlly);
-  let valueButton = 0;
-  let ataqueFuerte = movStrong();
-  let ataqueDebil = movWeaknes();
-  let tipoAgua = foundPlayer.tipo.find((element) => element == movsElements[0]);
-  let tipoFuego = elegidoEnemie.tipo.find((element) => element == movsElements[1]);
-  let tipoTierra = elegidoEnemie.tipo.find((element) => element == movsElements[2]);
-
-  if (tipoAgua && tipoTierra) {
-    if (ataqueDebil > ataqueFuerte) {
-      enemyLifes--;
-      crearMensajeAlly(valueButton);
-    } else {
-      userLifes--;
-      crearMensajeEnemie(valueButton);
-    }
-    lifeEnemy.innerHTML = enemyLifes;
-    lifeUser.innerHTML = userLifes;
-  } else if (tipoAgua && tipoFuego) {
-    if (ataqueFuerte >= ataqueDebil) {
-      enemyLifes--;
-      crearMensajeAlly(valueButton);
-    } else {
-      userLifes--;
-      crearMensajeEnemie(valueButton);
-    }
-    lifeEnemy.innerHTML = enemyLifes;
-    lifeUser.innerHTML = userLifes;
-  } else if (tipoAgua && tipoAgua) {
-    if (movStrong() >= movStrong()) {
-      enemyLifes--;
-      crearMensajeAlly(valueButton);
-    } else {
-      userLifes--;
-      crearMensajeEnemie(valueButton);
-    }
-    lifeEnemy.innerHTML = enemyLifes;
-    lifeUser.innerHTML = userLifes;
-  }
-
-  endBattle();
-});
+// buttonWater.addEventListener(`click`, ataqueAgua );
 // BOTON ATAQUE AGUA
 // BOTON ATAQUE AGUA
 
 //// BOTON ATAQUE FUEGO
 //// BOTON ATAQUE FUEGO
-buttonFire.addEventListener(`click`, () => {
-  const elegidoAlly = setAllyPet();
-  mostrarRegistroCombate();
-  let valueButton = 1;
-  let foundPlayer = mokemons.find((element) => element.name == elegidoAlly);
-
-  let ataqueFuerte = movStrong();
-  let ataqueDebil = movWeaknes();
-  let tipoAgua = elegidoEnemie.tipo.find((element) => element == movsElements[0]);
-  let tipoFuego = foundPlayer.tipo.find((element) => element == movsElements[1]);
-  let tipoTierra = elegidoEnemie.tipo.find((element) => element == movsElements[2]);
-
-  if (tipoFuego && tipoAgua) {
-    if (ataqueDebil > ataqueFuerte) {
-      enemyLifes--;
-      crearMensajeAlly(valueButton);
-    } else {
-      userLifes--;
-      crearMensajeEnemie(valueButton);
-    }
-    lifeEnemy.innerHTML = enemyLifes;
-    lifeUser.innerHTML = userLifes;
-  } else if (tipoFuego && tipoTierra) {
-    if (ataqueFuerte >= ataqueDebil) {
-      enemyLifes--;
-      crearMensajeAlly(valueButton);
-    } else {
-      userLifes--;
-      crearMensajeEnemie(valueButton);
-    }
-    lifeEnemy.innerHTML = enemyLifes;
-    lifeUser.innerHTML = userLifes;
-  } else if (tipoFuego && tipoFuego) {
-    if (movStrong() >= movStrong()) {
-      enemyLifes--;
-      crearMensajeAlly(valueButton);
-    } else {
-      userLifes--;
-      crearMensajeEnemie(valueButton);
-    }
-    lifeEnemy.innerHTML = enemyLifes;
-    lifeUser.innerHTML = userLifes;
-  }
-  endBattle();
-});
+// buttonFire.addEventListener(`click`, ataqueFuego);
 //// BOTON ATAQUE FUEGO
 //// BOTON ATAQUE FUEGO
 
 ////// BOTON ATAQUE ARENA
 ////// BOTON ATAQUE ARENA
-buttonSand.addEventListener(`click`, () => {
-  const elegidoAlly = setAllyPet();
-  mostrarRegistroCombate();
-  let valueButton = 2;
-
-  let foundPlayer = mokemons.find((element) => element.name == elegidoAlly);
-
-  let ataqueFuerte = movStrong();
-  let ataqueDebil = movWeaknes();
-  let tipoAgua = elegidoEnemie.tipo.find((element) => element == movsElements[0]);
-  let tipoFuego = elegidoEnemie.tipo.find((element) => element == movsElements[1]);
-  let tipoTierra = foundPlayer.tipo.find((element) => element == movsElements[2]);
-
-  if (tipoTierra && tipoFuego) {
-    if (ataqueDebil > ataqueFuerte) {
-      enemyLifes--;
-      crearMensajeAlly(valueButton);
-    } else {
-      userLifes--;
-      crearMensajeEnemie(valueButton);
-    }
-    lifeEnemy.innerHTML = enemyLifes;
-    lifeUser.innerHTML = userLifes;
-  } else if (tipoTierra && tipoAgua) {
-    if (ataqueFuerte >= ataqueDebil) {
-      enemyLifes--;
-      crearMensajeAlly(valueButton);
-    } else {
-      userLifes--;
-      crearMensajeEnemie(valueButton);
-    }
-    lifeEnemy.innerHTML = enemyLifes;
-    lifeUser.innerHTML = userLifes;
-  } else if (tipoTierra && tipoTierra) {
-    if (movStrong() >= movStrong()) {
-      enemyLifes--;
-      crearMensajeAlly(valueButton);
-    } else {
-      userLifes--;
-      crearMensajeEnemie(valueButton);
-    }
-    lifeEnemy.innerHTML = enemyLifes;
-    lifeUser.innerHTML = userLifes;
-  }
-  endBattle();
-});
+// buttonSand.addEventListener(`click`, ataqueTierra);
 ////// BOTON ATAQUE ARENA
 ////// BOTON ATAQUE ARENA
 
@@ -389,22 +255,27 @@ function crearMensajeEnemie(valueButton) {
 }
 
 function endBattle() {
+ let buttonFire = document.getElementById(`button-fire`);
+ let buttonWater = document.getElementById(`button-water`);
+ let buttonSand = document.getElementById(`button-sand`);
+ let disableButtons = document.querySelectorAll(`.button-moveon`);
   const leftLifePLayer = setAllyLifes();
-  const leftLifeEnemies = setEnemieLifes();
+  const leftLifeEnemies = setEnemieLifes(); 
   console.log(leftLifeEnemies);
   if (leftLifeEnemies <= 0) {
     document.getElementById(`aviso`).innerText = `GANASTE`;
-    document.getElementById(`button-restart`).classList.remove(`hidden`);
-    buttonFire.disabled = true;
-    buttonWater.disabled = true;
-    buttonSand.disabled = true;
+   document.getElementById(`button-restart`).classList.remove(`hidden`);
+   disableButtons.forEach((element) => {
+    element.disabled = true
+   })
+    
   }
   if (leftLifePLayer <= 0) {
     document.getElementById(`aviso`).innerText = `PERDISTE`;
     document.getElementById(`button-restart`).classList.remove(`hidden`);
-    buttonFire.disabled = true;
-    buttonWater.disabled = true;
-    buttonSand.disabled = true;
+    disableButtons.forEach((element) => {
+      element.disabled = true;
+    });
   }
 }
 
@@ -454,10 +325,12 @@ function mostrarAtaques(ataques) {
  
  ataques.forEach((ataque) => {
   btnGeneratorAtaque = ` 
-  <button id="${ataque.id}1" class="button-moveon">${ataque.name}</button>
- `
+  <button id="${ataque.id}" class="button-moveon" onclick="ataque${ataque.function}()">${ataque.name}</button>
+ `;
   panelAtaques.innerHTML += btnGeneratorAtaque
-})
+  
+ })
+ 
  
  
  
@@ -470,4 +343,145 @@ function addValue() {
     let addValue = Element.getAttribute(`id`);
     Element.setAttribute(`value`, addValue);
   });
+}
+
+
+function ataqueWater() {
+  const elegidoAlly = setAllyPet();
+  mostrarRegistroCombate();
+
+  let foundPlayer = mokemons.find((element) => element.name == elegidoAlly);
+  let valueButton = 0;
+  let ataqueFuerte = movStrong();
+  let ataqueDebil = movWeaknes();
+  let tipoAgua = foundPlayer.tipo.find((element) => element == movsElements[0]);
+  let tipoFuego = elegidoEnemie.tipo.find((element) => element == movsElements[1]);
+  let tipoTierra = elegidoEnemie.tipo.find((element) => element == movsElements[2]);
+
+  if (tipoAgua && tipoTierra) {
+    if (ataqueDebil > ataqueFuerte) {
+      enemyLifes--;
+      crearMensajeAlly(valueButton);
+    } else {
+      userLifes--;
+      crearMensajeEnemie(valueButton);
+    }
+    lifeEnemy.innerHTML = enemyLifes;
+    lifeUser.innerHTML = userLifes;
+  } else if (tipoAgua && tipoFuego) {
+    if (ataqueFuerte >= ataqueDebil) {
+      enemyLifes--;
+      crearMensajeAlly(valueButton);
+    } else {
+      userLifes--;
+      crearMensajeEnemie(valueButton);
+    }
+    lifeEnemy.innerHTML = enemyLifes;
+    lifeUser.innerHTML = userLifes;
+  } else if (tipoAgua && tipoAgua) {
+    if (movStrong() >= movStrong()) {
+      enemyLifes--;
+      crearMensajeAlly(valueButton);
+    } else {
+      userLifes--;
+      crearMensajeEnemie(valueButton);
+    }
+    lifeEnemy.innerHTML = enemyLifes;
+    lifeUser.innerHTML = userLifes;
+  }
+
+  endBattle();
+}
+
+function ataqueFire() {
+  const elegidoAlly = setAllyPet();
+  mostrarRegistroCombate();
+  let valueButton = 1;
+  let foundPlayer = mokemons.find((element) => element.name == elegidoAlly);
+
+  let ataqueFuerte = movStrong();
+  let ataqueDebil = movWeaknes();
+  let tipoAgua = elegidoEnemie.tipo.find((element) => element == movsElements[0]);
+  let tipoFuego = foundPlayer.tipo.find((element) => element == movsElements[1]);
+  let tipoTierra = elegidoEnemie.tipo.find((element) => element == movsElements[2]);
+
+  if (tipoFuego && tipoAgua) {
+    if (ataqueDebil > ataqueFuerte) {
+      enemyLifes--;
+      crearMensajeAlly(valueButton);
+    } else {
+      userLifes--;
+      crearMensajeEnemie(valueButton);
+    }
+    lifeEnemy.innerHTML = enemyLifes;
+    lifeUser.innerHTML = userLifes;
+  } else if (tipoFuego && tipoTierra) {
+    if (ataqueFuerte >= ataqueDebil) {
+      enemyLifes--;
+      crearMensajeAlly(valueButton);
+    } else {
+      userLifes--;
+      crearMensajeEnemie(valueButton);
+    }
+    lifeEnemy.innerHTML = enemyLifes;
+    lifeUser.innerHTML = userLifes;
+  } else if (tipoFuego && tipoFuego) {
+    if (movStrong() >= movStrong()) {
+      enemyLifes--;
+      crearMensajeAlly(valueButton);
+    } else {
+      userLifes--;
+      crearMensajeEnemie(valueButton);
+    }
+    lifeEnemy.innerHTML = enemyLifes;
+    lifeUser.innerHTML = userLifes;
+  }
+  endBattle();
+}
+
+function ataqueSand() {
+  const elegidoAlly = setAllyPet();
+  mostrarRegistroCombate();
+  let valueButton = 2;
+
+  let foundPlayer = mokemons.find((element) => element.name == elegidoAlly);
+
+  let ataqueFuerte = movStrong();
+  let ataqueDebil = movWeaknes();
+  let tipoAgua = elegidoEnemie.tipo.find((element) => element == movsElements[0]);
+  let tipoFuego = elegidoEnemie.tipo.find((element) => element == movsElements[1]);
+  let tipoTierra = foundPlayer.tipo.find((element) => element == movsElements[2]);
+
+  if (tipoTierra && tipoFuego) {
+    if (ataqueDebil > ataqueFuerte) {
+      enemyLifes--;
+      crearMensajeAlly(valueButton);
+    } else {
+      userLifes--;
+      crearMensajeEnemie(valueButton);
+    }
+    lifeEnemy.innerHTML = enemyLifes;
+    lifeUser.innerHTML = userLifes;
+  } else if (tipoTierra && tipoAgua) {
+    if (ataqueFuerte >= ataqueDebil) {
+      enemyLifes--;
+      crearMensajeAlly(valueButton);
+    } else {
+      userLifes--;
+      crearMensajeEnemie(valueButton);
+    }
+    lifeEnemy.innerHTML = enemyLifes;
+    lifeUser.innerHTML = userLifes;
+  } else if (tipoTierra && tipoTierra) {
+    if (movStrong() >= movStrong()) {
+      enemyLifes--;
+      crearMensajeAlly(valueButton);
+    } else {
+      userLifes--;
+      crearMensajeEnemie(valueButton);
+    }
+    lifeEnemy.innerHTML = enemyLifes;
+    lifeUser.innerHTML = userLifes;
+  }
+  endBattle();
 }
