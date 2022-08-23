@@ -3,32 +3,18 @@ window.addEventListener(`load`, startGame);
 const mokemons = [
   {
     name: "Charizard",
-<<<<<<< HEAD
-    tipo: [`fuego`],
-    ataques: [
-      { id: `button-fuego`, nombre: `Fuego` },
-      { id: `button-fuego`, nombre: `Fuego` },
-=======
     tipo: [`fuego`, `fuego`],
     ataques: [
       { name: `Fire 🔥`, id: `button-fire`, function: `Fire` },
       { name: `Fire 🔥`, id: `button-fire`, function: `Fire` },
->>>>>>> c7232f3cf58f55d2a105a4b06e0bc7d52990366b
     ],
   },
   {
     name: `Hipoge`,
-<<<<<<< HEAD
-    tipo: [`agua`],
-    ataques: [
-      { id: `button-agua`, nombre: `Agua` },
-      { id: `button-agua`, nombre: `Agua` },      
-=======
     tipo: [`agua`, `agua`],
     ataques: [
       { name: `Water 💧`, id: `button-water`, function: `Water` },
       { name: `Water 💧`, id: `button-water`, function: `Water` },
->>>>>>> c7232f3cf58f55d2a105a4b06e0bc7d52990366b
     ],
   },
   {
@@ -211,8 +197,7 @@ function selecionaMascota() {
  
 }
 
-// selectPetPlayer.addEventListener(`click`, selecionaMascota);
->>>>>>> c7232f3cf58f55d2a105a4b06e0bc7d52990366b
+selectPetPlayer.addEventListener(`click`, selecionaMascota);
 ///////////// SELECION DE MASCOTA
 ///////////// SELECION DE MASCOTA
 
@@ -500,8 +485,4 @@ function ataqueSand() {
     lifeUser.innerHTML = userLifes;
   }
   endBattle();
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> c7232f3cf58f55d2a105a4b06e0bc7d52990366b
