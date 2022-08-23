@@ -7,20 +7,10 @@
 
     <link rel="stylesheet" href="stylemokemon.css" />
     <title>JavascriptJunior</title>
-<<<<<<< HEAD
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap"
-      rel="stylesheet"
-    />
-    <script defer src="codigo.js" ></script>
-=======
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
 <script defer src="codigo.js"></script>
->>>>>>> c7232f3cf58f55d2a105a4b06e0bc7d52990366b
   </head>
 
   <body onload="addValue()">
@@ -29,11 +19,11 @@
     <section id="select-pet" class="select-pet">
       <h2>Elige tu mascota:</h2>
       <h3>MASCOTAS</h3>
-      <ul id="panel-mascotas">
+      <ul id="panel-mascotas" onchange="selecionaMascota()">
 
       </ul>
 
-      <button id="button-select-pet">Seleccionar</button>
+      <!-- <button id="button-select-pet">Seleccionar</button> -->
     </section>
 
 
@@ -43,12 +33,8 @@
       <h3>Elige tu ataque:</h3>
       <img src="" alt="" class="containerImgPet" id="imgAlly" />
       <p>Tu <span id="mascotajugador"> </span> tiene <span id="vidasjugador">3</span> vidas</p>
-<<<<<<< HEAD
-      <img src="" alt="" class="containerImgPet" id="imgEnemie" />
-      <p>
-        El <span id="mascotaenemigo"></span> enemigo tiene <span id="vidasenemigo">3</span> vidas
-      </p>
-
+      <img src="" alt="" class="containerImgPet" id="imgEnemie">
+      <p>El <span id="mascotaenemigo"></span> enemigo tiene <span id="vidasenemigo">3</span> vidas</p>
       <div id="panel-ataques">
         
         
@@ -56,30 +42,16 @@
           Volver a jugar
         </button>
       </div>
-=======
-      <img src="" alt="" class="containerImgPet" id="imgEnemie">
-      <p>El <span id="mascotaenemigo"></span> enemigo tiene <span id="vidasenemigo">3</span> vidas</p>
-      <div id="panel-ataques">
-        <button id="button-fire" class="button-moveoff ">Fire 🔥</button>
-        <button id="button-water" class="button-moveoff ">Water 💧</button>
-        <button id="button-sand" class="button-moveoff ">Sand 🌿</button>
-        
-      </div>
       <button id="button-restart" onclick="restart()" class="buttonrestart hidden">Volver a jugar</button>
->>>>>>> c7232f3cf58f55d2a105a4b06e0bc7d52990366b
     </section>
     <section id="menssage" class="">
       <section id="menssageally" class="menssage hidden"><h4>Golpeas</h4></section>
       <p id="aviso"></p>
       <section id="menssageenemie" class="menssage hidden"><h4>Te golpean</h4></section>
     </section>
-<<<<<<< HEAD
-    <section id="restart"></section>
-=======
     <section id="restart">
       
     </section>
->>>>>>> c7232f3cf58f55d2a105a4b06e0bc7d52990366b
     
   </body>
 </html>
