@@ -196,7 +196,7 @@ function selecionaMascota() {
  
 }
 
-selectPetPlayer.addEventListener(`click`, selecionaMascota);
+// selectPetPlayer.addEventListener(`click`, selecionaMascota);
 ///////////// SELECION DE MASCOTA
 ///////////// SELECION DE MASCOTA
 
