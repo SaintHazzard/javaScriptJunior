@@ -3,7 +3,7 @@ window.addEventListener(`load`, startGame);
 const mokemons = [
   {
     name: "Charizard",
-    tipo: [`fuego`, `fuego`],
+    tipo: [`Fuego`],
     ataques: [
       { name: `Fire 🔥`, id: `button-fire`, function: `Fire` },
       { name: `Fire 🔥`, id: `button-fire`, function: `Fire` },
@@ -11,7 +11,7 @@ const mokemons = [
   },
   {
     name: `Hipoge`,
-    tipo: [`agua`, `agua`],
+    tipo: [`Agua`],
     ataques: [
       { name: `Water 💧`, id: `button-water`, function: `Water` },
       { name: `Water 💧`, id: `button-water`, function: `Water` },
@@ -19,7 +19,7 @@ const mokemons = [
   },
   {
     name: `Geoude`,
-    tipo: [`tierra`, `tierra`],
+    tipo: [`Tierra`],
     ataques: [
       { name: `Sand 🌿`, id: `button-sand`, function: `Sand` },
       { name: `Sand 🌿`, id: `button-sand`, function: `Sand` },
@@ -27,7 +27,7 @@ const mokemons = [
   },
   {
     name: `Pydos`,
-    tipo: [`tierra`, `fuego`],
+    tipo: [`Tierra`, `Fuego`],
     ataques: [
       { name: `Sand 🌿`, id: `button-sand`, function: `Sand` },
       { name: `Fire 🔥`, id: `button-fire`, function: `Fire` },
@@ -35,7 +35,7 @@ const mokemons = [
   },
   {
     name: `Tucapalma`,
-    tipo: [`agua`, `tierra`],
+    tipo: [`Agua`, `Tierra`],
     ataques: [
       { name: `Water 💧`, id: `button-water`, function: `Water` },
       { name: `Sand 🌿`, id: `button-sand`, function: `Sand` },
@@ -43,7 +43,7 @@ const mokemons = [
   },
   {
     name: `Langostelvis`,
-    tipo: [`agua`, `fuego`],
+    tipo: [`Agua`, `Fuego`],
     ataques: [
       { name: `Water 💧`, id: `button-water`, function: `Water` },
       { name: `Fire 🔥`, id: `button-fire`, function: `Fire` },
@@ -53,7 +53,7 @@ const mokemons = [
 
 window.addEventListener(`load`, startGame);
 
-const movsElements = [`agua`, `fuego`, `tierra`];
+const movsElements = [`Agua`, `Fuego`, `Tierra`];
 const namePet = document.getElementById(`mascotajugador`);
 const namePetEnemy = document.getElementById(`mascotaenemigo`);
 const divMovs = document.getElementById(`select-mov`);
@@ -129,14 +129,14 @@ function startGame() {
    let addPet = document.createElement("li"); // is a node
    opcionDeMokemon = `
       
-         <label for="${element.name}"><img src="${element.name}.png" alt="${
+         <label for="${element.name}" class="select"><img src="${element.name}.png" alt="${
      element.name
-   }" class="containerImgPet" ></label>
+   }" class="containerImgPet" >
          <input type="radio" class="select1" name="select-pet" id="${element.name}" />
-          <label for="${element.name}" class="select"
+          <p for="${element.name}" class="select"
             >${element.name} ➡ ${element.tipo}
             
-          </label>
+          </p>
         
           
         

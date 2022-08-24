@@ -164,7 +164,8 @@ function mostrarAtaques(ataques) {
 
 function secuenciaAtaque() {
     botones.forEach((boton) => {
-        boton.addEventListener('click', (e) => {
+     boton.addEventListener('click', (e) => {
+         e.target.disabled = true
             if (e.target.textContent === '🔥') {
                 ataqueJugador.push('FUEGO')
                 console.log(ataqueJugador)
@@ -215,7 +216,7 @@ function iniciarPelea() {
 }
 
 function indexAmbosOponente(jugador, enemigo) {
-    indexAtaqueJugador = ataqueEnemigo[jugador]
+    indexAtaqueJugador = ataqueJugador[jugador]
     indexAtaqueEnemigo = ataqueEnemigo[enemigo]
 }
 
@@ -252,10 +253,12 @@ function combate() {
 }
 
 function revisarVictorias() {
-    if (victoriasJugador == 5) {
-        crearMensajeFinal("FELICITACIONES! Ganaste :)")
-    } else if (victoriasEnemigo == 5) {
-        crearMensajeFinal('Lo siento, perdiste :(')
+    if (victoriasJugador > victoriasEnemigo) {
+      crearMensajeFinal("FELICITACIONES! Ganaste :)");
+    } else if (victoriasEnemigo > victoriasJugador ) {
+      crearMensajeFinal("Lo siento, perdiste :(");
+    } else if (victoriasEnemigo == victoriasJugador) {
+      crearMensajeFinal("TABLAS");
     }
 }
 
@@ -279,11 +282,7 @@ function crearMensajeFinal(resultadoFinal) {
     sectionMensajes.innerHTML = resultadoFinal
 
     
-    botonFuego.disabled = true
     
-    botonAgua.disabled = true
-    
-    botonTierra.disabled = true
 
     
     sectionReiniciar.style.display = 'block'
