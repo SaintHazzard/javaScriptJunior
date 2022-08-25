@@ -8,5 +8,16 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SaintHazzard/javaScriptJunior.git"
+  },
+  "bugs": {
+    "url": "https://github.com/SaintHazzard/javaScriptJunior/issues"
+  },
+  "homepage": "https://github.com/SaintHazzard/javaScriptJunior#readme",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
 }
