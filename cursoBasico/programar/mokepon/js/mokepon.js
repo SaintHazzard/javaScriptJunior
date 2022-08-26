@@ -212,12 +212,7 @@ function unirserAlJuego() {
      console.log(respuesta);
     })
    }
-   if (res.ok) {
-    res.text()
-     .then(function (respuesta) {
-     console.log(respuesta);
-    })
-   }
+   
  })
 }
 
