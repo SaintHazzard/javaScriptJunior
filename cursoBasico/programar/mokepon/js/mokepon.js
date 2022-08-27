@@ -49,6 +49,7 @@ mapaBackground.src = `/cursoBasico/programar/mokepon/assets/mokemap.png`;
 let alturaQueBuscamos
 let anchoDelMapa = window.innerWidth - 20
 const anchoMaximoDelMapa = 350
+let jugadorId = null
 
 
 if (anchoDelMapa > anchoMaximoDelMapa) {
@@ -202,19 +203,7 @@ function iniciarJuego() {
  unirserAlJuego()
 }
 
-function unirserAlJuego() {
- fetch(`http://localhost:8080/unirse`)
-  .then(function (res) {
-   console.log(res);
-   if (res.ok) {
-    res.text()
-    .then(function (respuesta) {
-     console.log(respuesta);
-    })
-   }
-   
- })
-}
+
 
 function seleccionarMascotaJugador() {
   sectionSeleccionarMascota.style.display = "none";
@@ -244,6 +233,9 @@ function seleccionarMascotaJugador() {
   } else {
     alert("Selecciona una mascota");
   }
+ seleccionarMokepon(mascotaJugador);
+  
+ 
  sectionVerMapa.style.display = `flex`;
  extraerAtaques(mascotaJugador);
   iniciarMapa();
@@ -516,5 +508,31 @@ function revisarColisiones(enemigo) {
  seleccionarMascotaEnemigo(enemigo);
  
 }
+
+function unirserAlJuego() {
+  fetch(`http://localhost:8080/unirse`).then(function (res) {
+    console.log(res);
+    if (res.ok) {
+      res.text().then(function (respuesta) {
+       jugadorId = respuesta;
+       console.log(jugadorId);
+      });
+    }
+  });
+}
+
+function seleccionarMokepon(mascotaJugador) {
+ fetch(`http://localhost:8080/mokepon/${jugadorId}`, {
+  method: `post`,
+  headers: {
+   "Content-Type": "application/json"
+  }, body: JSON.stringify({
+   mokepon: mascotaJugador
+  })
+ }
+ 
+ )
+}
+   
 
 window.addEventListener("load", iniciarJuego);
