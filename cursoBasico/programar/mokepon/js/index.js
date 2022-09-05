@@ -1,13 +1,10 @@
 const express = require("express");
 const cors = require("cors");
 const app = express();
-
-app.use(express.static('public'))
-app.use(cors()); 
-
+app.use(express.static("public"));
+app.use(cors());
 app.use(express.json());
 const jugadores = [];
-
 class Jugador {
   constructor(id) {
     this.id = id;
@@ -18,10 +15,10 @@ class Jugador {
   actualizarPosicion(x, y) {
     this.x = x;
     this.y = y;
- }
- asignarAtaque(ataques) {
-  this.ataques = ataques
- }
+  }
+  asignarAtaques(ataques) {
+    this.ataques = ataques;
+  }
 }
 class Mokepon {
   constructor(nombre) {
@@ -60,22 +57,18 @@ app.post("/mokepon/:jugadorId/posicion", (req, res) => {
 });
 app.post("/mokepon/:jugadorId/ataques", (req, res) => {
   const jugadorId = req.params.jugadorId || "";
-  const ataques = req.body.ataques || "";
+  const ataques = req.body.ataques || [];
   const jugadorIndex = jugadores.findIndex((jugador) => jugadorId === jugador.id);
   if (jugadorIndex >= 0) {
-    jugadores[jugadorIndex].asignarAtaque(ataques);
+    jugadores[jugadorIndex].asignarAtaques(ataques);
   }
-  
   res.end();
 });
-
-app.get(`/mokepon/:jugadorId/ataques`, (req, res) => {
- const jugadorId = req.params.jugadorId || "";
- const jugador = jugadores.find((jugador) => jugador.id === jugadorId)
-
- res.send({ataques: jugador.ataques || []})
-})
-
+app.get("/mokepon/:jugadorId/ataques", (req, res) => {
+  const jugadorId = req.params.jugadorId || "";
+  const jugador = jugadores.find((jugador) => jugador.id === jugadorId);
+  res.send({ ataques: jugador.ataques || [] });
+});
 app.listen(8080, () => {
   console.log("Servidor funcionando");
 });
